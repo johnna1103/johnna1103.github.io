@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang = "en">
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+	<title>Study Abroad!</title>
+	
+<style>
+	body{
+		margin: 0;
+	}
+	#container{
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+	}
+	#backcolor{
+		position: absolute;
+		background-color: black;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 3;
+	}
+	#backdrop{
+		z-index: 5;
+		position: absolute;
+		top: 0%;
+		left: 110%;
+		width: 800%;
+		height: 100%;
+		background-size: cover;
+		background-image: url(clouds3.png);
+		display: none;
+		animation: scrollcloud 13s linear;
+	}
+		@keyframes scrollcloud{
+		0% {transform: translate(0%,0%); opacity: 1;}
+		90% {opacity: 1;}
+		100% {transform: translate(-50%, 0%);
+			opacity: 0;}
+	}
+	
+	#startBTN{
+		z-index: 5;
+        position: absolute;
+		padding: 1% 1%;
+        border-radius: 30%;
+        background: white;
+        color: black;
+        top: 80%;
+        left: 45%;
+        cursor: pointer;
+		font-weight: bold;
+        user-select: none;
+		text-align: center;
+		font-size: 180%;
+        font-family: 'Roboto Slab', serif;
+    }
+	#yes {
+        position: absolute;
+		width: 100%;
+		text-align: center;
+		font-size: 180%;
+        font-family: 'Roboto Slab', serif;
+    }
+	#skygradient{
+		z-index: 4;
+		position: absolute;
+		width: 800%;
+		height: 800%;
+		top: -800%;
+		left: 0%;
+		background-size: contain;
+		background-image: url(skygradient.png);
+		background-repeat: no-repeat;
+		display: none;
+		animation: skychange 11s;
+		animation-fill-mode: forwards;
+		
+	}
+	@keyframes skychange{
+		from{transform: translate(0%,0%);}
+		to{transform: translate(0%,100%);}
+	}
+	
+	#questionTxt{
+		position: absolute;
+		top: 25%;
+		height: 100%;
+		width: 100%;
+		text-align: center;
+		font-family: 'Roboto Slab', serif;
+		font-size: 	400%;
+		color: white;
+		z-index: 5;
+	}
+	
+	#plane{
+		position: absolute;
+		background-image: url(plane.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+		top: 50%;
+		left: -70%;
+		width: 70%;
+		height: 65%;
+		display: none;
+		z-index: 5;
+		animation: planeFly 10s linear;
+	}
+	
+	@keyframes planeFly{
+		0% {transform: translate(0%, 20%);}
+		50%{transform: translate(160%, -50%);}
+		75%{transform: translate(250%,10%);}
+		100% {transform: translate(300%,10%);}
+	}
+	
+	#skipbtn{
+		position: absolute;
+		top: 1%;
+		left: 2%;
+		width: 4%;
+		font-size: 100%;
+		background-color: white;
+		color: black;
+		text-align: center;
+		border-radius: 30%;
+		font-family: 'Roboto Slab', serif;
+		z-index: 9;
+	}
+	
+</style>
+<body>
+	<div id = "container">
+	<a href="home.html"><div id = "skipbtn">Skip</div></a>
+	<div id = "questionTxt"> Would you like to light up your world? </div>
+	<div id = "backcolor"></div>
+	<div id = "backdrop"></div>
+	<div id = "backdrop2"></div>
+	<div id = "startBTN">Yes!</div>
+	<div id = "skygradient"></div>
+	<div id = "plane"> </div>
+	</div>
+<script>
+	var mySTART = document.querySelector("#startBTN");
+	var mybackdrop = document.querySelector("#backdrop");
+	var mySkygradient = document.querySelector("#skygradient");
+	var mybackcolor = document.querySelector("#backcolor");
+	var myQtxt = document.querySelector("#questionTxt");
+	var myPlane = document.querySelector("#plane");
+	
+	mySTART.addEventListener("click", startANI, false);
+	
+	function startANI(){
+		mySTART.style.display = "none";
+		myQtxt.style.display = "none";
+		mySkygradient.style.display = "block";
+		series();
+	}
+	function series(){
+		setTimeout(function backdropGo(){
+			mybackcolor.style.display = "none";
+			mybackdrop.style.display = "block";
+		},6000);
+	
+		setTimeout(function planeGo(){
+			myPlane.style.display = "block";	
+		},9000);
+	
+		setTimeout(function stop(){
+			myPlane.style.display = "none";
+			mySkygradient.style.display = "none";
+		},17000);
+		
+		setTimeout(function stopclouds(){
+			mybackdrop.style.display = "none";
+			window.location = "home.html";
+		},19000);
+
+	}
+</script>
+</body>
+</html>
