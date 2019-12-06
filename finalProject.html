@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Welcome to Bradford West Gwillimbury Public Library </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+
+    <style>
+        @media (min-width: 600px) {
+
+            #container {
+                display: grid;
+                grid-template-columns: auto;
+                grid-template-rows: auto;
+                width: 100%;
+                height: 100vh;
+                grid-gap: 15px;
+
+
+            }
+
+            header {
+                grid-column-start: 2;
+                grid-column-end: 7;
+                grid-row-start: 1;
+                grid-row-end: 2;
+
+            }
+
+            nav {
+                grid-column-start: 2;
+                grid-column-end: 7;
+                grid-row-start: 2;
+                grid-row-end: 3;
+
+            }
+
+            main {
+                grid-column-start: 2;
+                grid-column-end: 6;
+                grid-row-start: 3;
+                grid-row-end: 5;
+
+            }
+
+
+
+
+            aside {
+                grid-column-start: 6;
+                grid-column-end: 7;
+                grid-row-start: 3;
+                grid-row-end: 5;
+
+            }
+
+
+            footer {
+                grid-column-start: 2;
+                grid-column-end: 7;
+                grid-row-start: 5;
+                grid-row-end: 6;
+            }
+
+            #padding1 {
+                grid-column-start: 1;
+                grid-column-end: 2;
+                grid-row-start: 1;
+                grid-row-end: 7;
+
+            }
+
+            #padding2 {
+                grid-column-start: 2;
+                grid-column-end: 7;
+                grid-row-start: 1;
+                grid-row-end: 2;
+            }
+
+            #padding3 {
+                grid-column-start: 7;
+                grid-column-end: 8;
+                grid-row-start: 1;
+                grid-row-end: 7;
+            }
+
+            #padding4 {
+                grid-column-start: 2;
+                grid-column-end: 7;
+                grid-row-start: 6;
+                grid-row-end: 7;
+            }
+
+
+            #mainLogo {
+                width: 250px;
+                position: relative;
+                float: left;
+                z-index: 100;
+
+            }
+
+
+            #libraryTitle {
+                font-family: 'DM Serif Display', serif;
+                font-size: 65px;
+                position: relative;
+                text-align: center;
+                top: 20px;
+            }
+
+            #tardiBody {
+                width: 100%;
+            }
+
+            #ceoBody {
+                width: 70%;
+                padding: 5px;
+
+            }
+
+            #barrisIMG {
+                width: 62%;
+                float: right;
+                padding: 5px;
+
+            }
+
+            #libraryGuide {
+                width: 60%;
+                float: right;
+                padding: 5px;
+            }
+
+            #libraryBody {}
+
+            #hourContainer {
+                left: 20px;
+            }
+
+            #hourTitle {
+                text-align: center;
+                font-size: 20px;
+                font-family: 'DM Serif Display', serif;
+
+            }
+
+            #hourList {
+                max-width: 100%;
+                margin: 15px;
+            }
+
+
+            .collapse.navbar-collapse {
+                background-color: mediumaquamarine;
+                width: 100%;
+            }
+
+            #eventlist2 {
+                display: none;
+            }
+
+            #eventlist3 {
+                display: none;
+            }
+
+            #eventContainer {
+                background-color: mediumaquamarine;
+            }
+
+            .btn {
+                color: black;
+                background-color: lightpink;
+            }
+
+            .socialIcons {
+                background-color: lightpink;
+                border-radius: 15px;
+
+            }
+
+            #socialLink {
+                max-width: 100%;
+                margin: 20px;
+                text-align: center;
+                font-family: 'DM Serif Display', serif;
+                left: -20px;
+            }
+
+            .card-title {
+                font-family: 'DM Serif Display', serif;
+                font-size: 25px;
+            }
+
+            .page-link {
+                color: black;
+                background-color: mediumaquamarine;
+                border-radius: 20px;
+                text-align: center;
+                left: 60px;
+                margin: 2px;
+
+
+            }
+
+            #navigationBar {
+                background-color: mediumaquamarine;
+            }
+
+            a.skip-search {
+                left: -999px;
+                position: absolute;
+                top: auto;
+                color: #000;
+                background: #fff;
+                width: 1px;
+                height: 1px;
+                overflow: hidden;
+                z-index: -999;
+            }
+
+            a.skip-search:focus,
+            a.skip-search:active {
+                color: #000;
+                background: #fff;
+                left: auto;
+                top: auto;
+                width: 30%;
+                height: auto;
+                overflow: auto;
+                margin: 5px 30%;
+                text-align: center;
+                font-size: 1.3em;
+                z-index: 999;
+            }
+
+            h2.skip-search {
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+
+            h2.skip-search :focus {
+                clip: rect(0 0 0 0);
+                height: auto;
+                margin: auto;
+                overflow: hidden;
+                padding: auto;
+                position: relative;
+                width: auto;
+            }
+        }
+
+
+
+
+
+
+        @media (max-width: 799px) {
+            #container {
+                width: 90%;
+                height: 100vh;
+                grid-gap: 80px;
+                display: grid;
+            }
+
+            #navigationBar {
+                background-color: mediumaquamarine;
+            }
+
+            #mainLogo {
+                display: none;
+            }
+
+            #libraryTitle {
+                font-family: 'DM Serif Display', serif;
+                font-size: 65px;
+                position: relative;
+                text-align: center;
+                top: 20px;
+            }
+
+            #tardiBody {
+                width: 100%;
+            }
+
+            #ceoBody {
+                width: 70%;
+                padding: 5px;
+
+            }
+
+            #barrisIMG {
+                width: 62%;
+                float: right;
+                padding: 5px;
+
+            }
+
+            #libraryGuide {
+                width: 60%;
+                float: right;
+                padding: 5px;
+            }
+
+            #libraryBody {}
+
+            #hourContainer {
+                left: 20px;
+            }
+
+            #hourTitle {
+                text-align: center;
+                font-size: 20px;
+                font-family: 'DM Serif Display', serif;
+
+            }
+
+            #hourList {
+                max-width: 100%;
+                margin: 15px;
+            }
+
+
+            .collapse.navbar-collapse {
+                background-color: mediumaquamarine;
+                width: 100%;
+            }
+
+            #eventlist2 {
+                display: none;
+            }
+
+            #eventlist3 {
+                display: none;
+            }
+
+            #eventContainer {
+                background-color: mediumaquamarine;
+            }
+
+            .btn {
+                color: black;
+                background-color: lightpink;
+                margin: 5px;
+            }
+
+            .socialIcons {
+                background-color: lightpink;
+                border-radius: 15px;
+
+            }
+
+            #socialLink {
+                max-width: 100%;
+                margin: 20px;
+                text-align: center;
+                font-family: 'DM Serif Display', serif;
+                left: -20px;
+            }
+
+            .card-title {
+                font-family: 'DM Serif Display', serif;
+                font-size: 25px;
+            }
+
+            .page-link {
+                color: black;
+                background-color: mediumaquamarine;
+                border-radius: 20px;
+                text-align: center;
+                left: 60px;
+                margin: 2px;
+
+
+            }
+
+            #weatherIcon {
+                width: 30%;
+                float: right;
+            }
+
+            .card mb-3 {
+                width: 10%;
+            }
+
+            a.skip-search {
+                left: -999px;
+                position: absolute;
+                top: auto;
+                color: #000;
+                background: #fff;
+                width: 1px;
+                height: 1px;
+                overflow: hidden;
+                z-index: -999;
+            }
+
+            a.skip-search:focus,
+            a.skip-search:active {
+                color: #000;
+                background: #fff;
+                left: auto;
+                top: auto;
+                width: 30%;
+                height: auto;
+                overflow: auto;
+                margin: 5px 30%;
+                text-align: center;
+                font-size: 1.3em;
+                z-index: 999;
+            }
+
+            h2.skip-search {
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+
+            h2.skip-search :focus {
+                clip: rect(0 0 0 0);
+                height: auto;
+                margin: auto;
+                overflow: hidden;
+                padding: auto;
+                position: relative;
+                width: auto;
+            }
+        }
+
+    </style>
+
+
+
+
+    <script>
+        // THE WEATHER FUNCTION/API
+        $(function() {
+
+            $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Toronto,CA&units=imperial&APPID=dc6c79145b6326b734eea6965880488f", function(e) {
+                console.log(e);
+
+
+
+
+                var icon = e.weather[0].icon;
+                console.log(icon);
+
+                $("#weatherIcon").attr("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
+
+                var iconAlt = e.weather[0].description;
+                console.log(iconAlt);
+                $('#weatherIcon').attr("alt", iconAlt);
+
+
+                var tempMax = e.main.temp_max;
+
+                var tempMin = e.main.temp_min;
+
+                var cityName = e.name;
+
+
+                $("#weatherDesc").append("<p>" + "City: " + cityName + "</p>" + "<p>" + "High Temperature: " + tempMax + "°F" + "</p>" + "<p>" + "Low Temperature: " + tempMin + "°F" + "</p>")
+
+
+            });
+
+
+            // THE HOURS FOR THE LIBRARY
+
+            $.getJSON("libraryHours.json",
+                function(f) {
+                    console.log(f);
+                    var title = f.Info.name;
+                    console.log(title);
+
+
+                    var weekends = f.Hours[6] + " & " + f.Hours[0];
+                    console.log(weekends);
+                    $("#hourTitle").append("<header>" + title + "</header>");
+                    for (i = 0; i < f.Hours.length; i++) {
+                        $("#hourList").append("<li>" + f.Hours[i] + "</li>");
+
+
+
+                    };
+                });
+
+            //LISTING THE MONTH
+
+            var d = new Date();
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            document.getElementById("demo").innerHTML = months[d.getMonth()];
+
+
+        });
+
+        // THE EVENT JQUERY 
+
+        $.getJSON("finalEvents.json",
+            function(r) {
+                console.log(r);
+                var eveWeek1 = r.WeekTwo[0]
+                console.log(eveWeek1);
+                for (i = 0; i < r.WeekTwo.length; i++) {
+
+                    $("#eventlist1").append("<li>" + r.WeekTwo[i] + "</li>");
+                };
+                for (i = 0; i < r.WeekThree.length; i++) {
+
+                    $("#eventlist2").append("<li>" + r.WeekThree[i] + "</li>");
+                };
+                for (i = 0; i < r.WeekFour.length; i++) {
+
+                    $("#eventlist3").append("<li>" + r.WeekFour[i] + "</li>");
+                };
+                $("#eventlist1").prepend("<h2>" + "Week Two" + "</h2>");
+                $("#eventlist2").prepend("<h2>" + "Week Three" + "</h2>");
+                $("#eventlist3").prepend("<h2>" + "Week Four" + "</h2>");
+
+                function getFocus() {
+                    document.getElementById("#eventlist1").focus();
+                };
+
+                function getFocus2() {
+                    document.getElementById("#eventlist2").focus();
+                };
+
+                function getFocus3() {
+                    document.getElementById("#eventlist3").focus();
+                };
+
+
+
+
+            });
+
+    </script>
+
+</head>
+
+<body role="document">
+
+    <!-- BYPASS BLOCK-->
+
+    <div class="text ">
+        <a class="skip-search" href="#searchBar" aria-label="Click here to skip to search the catalogue">Skip to Search</a>
+    </div>
+
+
+
+
+    <div id="container">
+
+        <!-- RESPONSIVE LOGO AND HEADER-->
+        <header>
+
+            <img src="Website%20Logo_Background.jpg" id="mainLogo" alt="...">
+
+            <h1 role="banner" tabindex="0" id="libraryTitle">Bradford West Gwillimbury Public Library</h1>
+
+        </header>
+
+
+        <!-- NAVIGATION BAR-->
+        <nav class="navbar navbar-expand-xl navbar-light bg-light" id="navigationBar">
+
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="This is the navigation bar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Books
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Bestseller and fiction recommendations</a>
+                            <a class="dropdown-item" href="#">Book Catalogue</a>
+                            <a class="dropdown-item" href="#">My personal librarian</a>
+                            <a class="dropdown-item" href="#">Teen Book Reviews</a>
+
+                        </div>
+                    </li>
+                </ul>
+
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Digital Library
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#"> eBooks, eAudiobooks, and eMagazines</a>
+                            <a class="dropdown-item" href="#">A-Z list of all digital resources</a>
+                            <a class="dropdown-item" href="#">Kanopy video streaming</a>
+
+                        </div>
+                    </li>
+
+                </ul>
+
+
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Library Policies and Rules</a>
+                            <a class="dropdown-item" href="#">Library Locator</a>
+                            <a class="dropdown-item" href="#">Holiday Hours</a>
+                            <a class="dropdown-item" href="#">Library Contact Information</a>
+
+                        </div>
+                    </li>
+
+                </ul>
+
+
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services & Programs
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" role="link">The Community</a>
+                            <a class="dropdown-item" href="#" role="link">Job Search</a>
+                            <a class="dropdown-item" href="#" role="link">Computers, printers and wi-fi</a>
+                            <a class="dropdown-item" href="#" role="link">Digitization Station</a>
+                            <a class="dropdown-item" href="#" role="link">Seed Library</a>
+                            <a class="dropdown-item" href="#" role="link">Meeting and study rooms</a>
+                            <a class="dropdown-item" href="#" role="link">Proctoring</a>
+
+                        </div>
+                    </li>
+
+                </ul>
+
+
+
+
+
+
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Services & Programs
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" role="link">The Community</a>
+                            <a class="dropdown-item" href="#" role="link">Computers, printers and wi-fi</a>
+                            <a class="dropdown-item" href="#" role="link">Digitization Station</a>
+                            <a class="dropdown-item" href="#" role="link"> Seed Library</a>
+                            <a class="dropdown-item" href="#" role="link">Meeting and study rooms</a>
+                            <a class="dropdown-item" href="#" role="link">Proctoring</a>
+                            <a class="dropdown-item" href="#" role="link">Interlibrary Loan or purchase request</a>
+
+                        </div>
+                    </li>
+
+                </ul>
+
+
+                <!-- SEARCH BAR AND SEARCH BUTTON-->
+                <form class="form-inline my-2 my-lg-0" role="form">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search the Catalogue" aria-label="Search" id="searchBar">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+
+
+
+        <!-- THE START OF THE MAIN CONTENT-->
+        <main role="main">
+
+
+
+            <!-- TED BARRIS CONTENT-->
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title" role="" tabindex="0">Upcoming Special Events</h3>
+
+                            <p class="card-text" tabindex="0">Due to unforseen circumstances, both Storm Chasing in Ontario and Exploring the Birds of Ontario have been cancelled on Monday, November 25. We apologize for any inconvenience this may cause and invite you to join us instead for Ted Barris' Author Visit on Wednesday, November 20.
+
+                                <img src="http://bradford.library.on.ca:57780/iguana/uploads/file/76782741_2874567132624054_1051306173271113728_n(1).jpg" class="img-fluid" alt="Ted Barris and his book, Rush to Danger" role="img" id="barrisIMG">
+
+                                Ted Barris is an author and military historian who will be sharing his latest book Rush to Danger, an exploration of stories of the life-and-death struggles of military medical personnel in combat.</p>
+
+
+                            <a href="#" class="btn btn-primary" role="button" aria-describedby="Read more on Ted Barris by going to this link">See More</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- TARDIGRADES WILL TAKE OVER THE WORLD!-->
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body" id="tardiBody">
+                            <h5 class="card-title" tabindex="0">Brian Resnick on Tardigrades</h5>
+
+                            <p class="card-text" tabindex="0">In the end, there will be tardigrades.
+
+                                If a cataclysm wipes out most of life on the planet — including humans — it’s likely that tardigrades will survive. These oddly cute microscopic animals are among the toughest creatures on Earth.
+
+                                Some can withstand the shock of boiling water and temperatures that near absolute zero. Others have survived in the crushing pressures of the deep ocean or go without water for decades. Tardigrades have survived in the vacuum of space. In 2014, Japanese researchers thawed a group of tardigrades that had been frozen for 30 years. What did they do after they woke up? They reproduced.
+
+                                But what would it take to ... kill them all? (Laughs maniacally.)</p>
+
+                            <img src="https://guinnessworldrecords.com/Images/tardigrade-tb_tcm25-564216.jpg" class="img-fluid" alt="Image of the tardigrades" role="img">
+
+
+
+
+                            <a href="#" class="btn btn-primary" role="button">See More</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- LIBRARY GUIDE -->
+
+                <div class="col-sm-6">
+                    <div class="card" id="libraryBody">
+                        <div class="card-body">
+                            <h5 class="card-title">Download the NEW Library Guide</h5>
+                            <img src="http://bradford.library.on.ca:57780/iguana/uploads/image/new_images/LG/lg_cover.jpg" class="img-fluid" alt="Picture of the Library Catalogue" role="img" id="libraryGuide">
+                            <p class="card-text" tabindex="0">Click on a program description to be taken to that program's online registration page. Program registration opens Wednesday, June 19.</p>
+                            <a href="#" class="btn btn-primary" role="button">Download Here</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--BWG LIBRARY CEO-->
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body" id="ceoBody">
+                            <h5 class="card-title" tabindex="0">BWG Library welcomes new CEO
+                            </h5>
+
+                            <p class="card-text" tabindex="0">Bradford West Gwillimbury Public Library is pleased to announce the appointment of Matthew Corbett as the Library's new CEO. Matthew will be joining the BWG Library team upon the retirement of the Library's current CEO, Terri Watman.</p>
+
+                            <img src="http://bradford.library.on.ca:57780/iguana/uploads/image/new_images/LG/library%20at%20sunset%20pink%20sky.jpg" class="img-fluid" alt="Image of the library" role="img">
+
+
+
+
+                            <a href="#" class="btn btn-primary" role="button">See More</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+        </main>
+
+
+
+        <aside role="complementary">
+
+
+
+
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="" class="card-img" id="weatherIcon" alt="">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" tabindex="0">Weather</h5>
+                            <p class="card-text" id="weatherDesc" tabindex="0"></p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--PLACEHOLDER FOR HOURS -->
+
+            <div class="card" style="width: 18rem;" id="hourContainer">
+                <div class="card-header" id="hourHeader">
+
+
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" id="hourTitle" tabindex="0"></li>
+
+                    <li class="list-group-item" id="hourList" role="listitem" tabindex="0"></li>
+                </ul>
+            </div>
+
+
+            <!--SOCIAL ICONS WITH LINKS ATTACHED-->
+
+            <!--THE SNAPCHAT ICON DOES NOT HAVE A LINK TO IT AND I WAS HESITANT TO TAKE IT AWAY BUT I DIDN'T KNOW IF THEY WERE GETTING A SNAPCHAT OR NOT-->
+
+
+            <div class="col-sm-6" id="socialLink">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Social Links</h5>
+
+                        <a href="https://www.facebook.com/bwglibrary"><img src="https://img.icons8.com/wired/64/000000/facebook.png" alt="Link to the library facebook page" class="socialIcons"></a>
+
+                        <a href="https://www.instagram.com/bwglibrary/"><img src="https://img.icons8.com/wired/64/000000/instagram-new.png" alt="Link to the library instagram page" class="socialIcons"></a>
+
+                        <a href="#"><img src="https://img.icons8.com/wired/64/000000/snapchat.png" alt="Link to the library snapchat page" class="socialIcons"></a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- EVENT LISTED ON A CARD-->
+
+
+            <div class="card" style="width: 18rem;">
+
+                <div class="card-body" id="eventContainer">
+                    <h5 class="card-title" id="demo" tabindex="0" aria-label="This is the December Events"></h5>
+
+                    <p class="eventlist" id="eventlist1" tabindex="0"></p>
+                    <p class="eventlist" id="eventlist2" tabindex="0"></p>
+                    <p class="eventlist" id="eventlist3" tabindex="0"></p>
+
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-link" id="eventOne" tabindex="0" onkeypress="focusMethodOne()" role="button" aria-label="Your at week two. Press Enter again to read off events or tab to next week">1</li>
+                            <li class="page-link" id="eventTwo" tabindex="0" onkeypress="focusMethodTwo()" role="button" aria-label="Your at week three. Press Enter again to read off events or tab to next week">2</li>
+                            <li class="page-link" id="eventThree" tabindex="0" onkeypress="focusMethodThree()" role="button" aria-label="Your at week four. Press Enter again to read off events or tab to continue">3</li>
+
+                        </ul>
+                    </nav>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </aside>
+
+        <footer role="contentinfo">
+
+
+
+
+
+
+
+
+
+
+            <div class="row">
+
+                <div class="col-6 col-md">
+                    <h5>Extra Links</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="./Accessibility_Page.html">App & Accessibility Page</a></li>
+                        <li><a class="text-muted" href="#">Letter to Library</a></li>
+                        <li><a class="text-muted" href="#">Random Tag</a></li>
+                        <li><a class="text-muted" href="#">Random Tag</a></li>
+                        <li><a class="text-muted" href="#">Random Tag</a></li>
+                        <li><a class="text-muted" href="#">Random Tag</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Random Tag</a></li>
+                        <li><a class="text-muted" href="#">Random Tag</a></li>
+                        <li><a class="text-muted" href="#">Another Random Tag</a></li>
+                        <li><a class="text-muted" href="#">Final Random Tag</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>About</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Random Tag</a></li>
+                        <li><a class="text-muted" href="#">Random Tag</a></li>
+                        <li><a class="text-muted" href="#">Random Tag</a></li>
+                        <li><a class="text-muted" href="#">Random Tag</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+        </footer>
+        <div id="padding1"></div>
+        <div id="padding2"></div>
+        <div id="padding3"></div>
+        <div id="padding4"></div>
+
+
+        <script>
+            var weekOneBTN;
+            weekOneBTN =
+                document.querySelector("#eventOne");
+            var weekTwoBTN;
+            weekTwoBTN =
+                document.querySelector("#eventTwo");
+            var weekThreeBTN;
+            weekThreeBTN =
+                document.querySelector("#eventThree");
+            var eventListingsOne;
+            eventListingsOne =
+                document.querySelector("#eventlist1");
+            var eventListingsTwo
+            eventListingsTwo =
+                document.querySelector("#eventlist2");
+            var eventListingsThree;
+            eventListingsThree =
+                document.querySelector("#eventlist3");
+
+
+
+            weekOneBTN.addEventListener("keypress", weekOneShow, false);
+
+            weekTwoBTN.addEventListener("keypress", weekTwoShow, false);
+
+            weekThreeBTN.addEventListener("keypress", weekThreeShow, false);
+
+
+            weekOneBTN.addEventListener("click", weekOneShow, false);
+
+            weekTwoBTN.addEventListener("click", weekTwoShow, false);
+
+            weekThreeBTN.addEventListener("click", weekThreeShow, false);
+
+            function weekOneShow() {
+                eventListingsOne.style.display = "block";
+                eventListingsTwo.style.display = "none";
+                eventListingsThree.style.display = "none";
+            };
+
+            function weekTwoShow() {
+                eventListingsOne.style.display = "none";
+                eventListingsTwo.style.display = "block";
+                eventListingsThree.style.display = "none";
+            };
+
+            function weekThreeShow() {
+                eventListingsOne.style.display = "none";
+                eventListingsTwo.style.display = "none";
+                eventListingsThree.style.display = "block";
+            };
+
+            focusMethodOne = function getFocus() {
+                document.getElementById("eventlist1").focus();
+            };
+
+            focusMethodTwo = function getFocus() {
+                document.getElementById("eventlist2").focus();
+            };
+
+            focusMethodThree = function getFocus() {
+                document.getElementById("eventlist3").focus();
+            };
+
+        </script>
+    </div>
+
+</body>
+
+</html>

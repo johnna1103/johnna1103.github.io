@@ -1,0 +1,19 @@
+{
+    "Info": {
+        "name": "Library Hours"
+
+    },
+
+    "Hours": [
+
+        "Sunday - Closed",
+        "Monday - 9am - 9pm",
+        "Tuesday - 9am - 9pm",
+        "Wednesday - 9am - 9pm",
+        "Thursday - 9am - 9pm",
+        "Friday - 9am - 5pm",
+        "Saturday - 9am - Noon"
+
+    ]
+
+}

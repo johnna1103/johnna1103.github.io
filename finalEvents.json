@@ -1,0 +1,54 @@
+{
+    "Month": {
+        "Name": "December"
+
+    },
+
+    "WeekOne": [
+
+        "Sunday - No Events Today",
+        "Monday - Scrapbooking 10:00AM ",
+        "Tuesday - Teen Gaming Afternoon 03:15PM ",
+        "Wednesday - Cookbook Club 07:00PM ",
+        "Thursday - Open Mic Night 07:00PM",
+        "Friday - Baby and Infant Sensory Play",
+        "Saturday - Trim the Three - A Family Event"
+
+    ],
+    "WeekTwo": [
+
+        "Sunday - No Events Today",
+        "Monday - Scrapbooking 10:00AM ",
+        "Tuesday - Teen Gaming Afternoon 03:15PM ",
+        "Wednesday - Cookbook Club 07:00PM ",
+        "Thursday - Open Mic Night 07:00PM",
+        "Friday - Baby and Infant Sensory Play 09:30AM",
+        "Saturday - Trim the Three - A Family Event 07:00PM"
+
+    ],
+    "WeekThree": [
+
+        "Sunday - No Events Today",
+        "Monday - Chess in the Library 07:30PM ",
+        "Tuesday - Knit Happens 06:30PM ",
+        "Wednesday - Immigrant Support Group 06:00PM ",
+        "Thursday - Bradford Breastfeeding Place 01:00PM",
+        "Friday - Baby and Infant Sensory Play",
+        "Saturday - Trim the Three - A Family Event"
+
+    ],
+    "WeekFour": [
+
+        "Sunday - No Events Today EVENTS FOUR",
+        "Monday - Scrapbooking 10:00AM ",
+        "Tuesday - Teen Gaming Afternoon 03:15PM ",
+        "Wednesday - Cookbook Club 07:00PM ",
+        "Thursday - Open Mic Night 07:00PM",
+        "Friday - Baby and Infant Sensory Play",
+        "Saturday - Trim the Three - A Family Event"
+
+    ]
+
+
+
+}
