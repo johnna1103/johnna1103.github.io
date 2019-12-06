@@ -2,11 +2,9 @@
 <html lang="en">
 
 <head>
-	<title>Whitley County Public Library</title>
+	<title>Responsive Template</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -24,73 +22,15 @@
 			background-color: white;
 		}
 
-		@media (min-width: 800px) {
-
-			h1,
-			h2,
-			h3,
-			h4,
-			h5,
-			h6 {
-				font-family: 'Questrial', sans-serif;
-			}
-
-			p {
-				font-family: 'Roboto', sans-serif;
-			}
+		@media (min-width: 600px) {
 
 			#container {
 				display: grid;
 				grid-template-columns: auto 27%;
-				grid-template-rows: 140px 50px auto 40px;
+				grid-template-rows: 110px 50px auto 40px;
 			}
 
-			a.skip-main {
-				left: -999px;
-				position: absolute;
-				top: auto;
-				color: #000;
-				background: #fff;
-				width: 1px;
-				height: 1px;
-				overflow: hidden;
-				z-index: -999;
-			}
 
-			a.skip-main:focus,
-			a.skip-main:active {
-				color: #000;
-				background: #fff;
-				left: auto;
-				top: auto;
-				width: 30%;
-				height: auto;
-				overflow: auto;
-				margin: 5px 30%;
-				text-align: center;
-				font-size: 1.3em;
-				z-index: 999;
-			}
-
-			h2.skip-main {
-				clip: rect(0 0 0 0);
-				height: 1px;
-				margin: -1px;
-				overflow: hidden;
-				padding: 0;
-				position: absolute;
-				width: 1px;
-			}
-
-			h2.skip-main :focus {
-				clip: rect(0 0 0 0);
-				height: auto;
-				margin: auto;
-				overflow: hidden;
-				padding: auto;
-				position: relative;
-				width: auto;
-			}
 
 
 
@@ -100,7 +40,6 @@
 				grid-row-start: 2;
 				grid-row-end: 3;
 				z-index: 3;
-				font-family: 'Roboto', sans-serif;
 			}
 
 			.btn-outline-success {
@@ -157,13 +96,8 @@
 
 
 			#logo {
-				width: 125px;
+				width: 290px;
 				height: auto;
-				float: left;
-			}
-
-			#libraryName {
-				margin-top: 40px;
 			}
 
 			.weeklyHours {
@@ -183,7 +117,6 @@
 
 			.weeklyHours ul {
 				line-height: 27px;
-				font-family: 'Roboto', sans-serif;
 
 
 			}
@@ -200,27 +133,23 @@
 
 
 
-			.btnLink {
+			#moreNews {
 				border: 2px solid white;
 				float: right;
 				background-color: #4a6faf;
-				margin-right: 30px;
+				margin-right: 20px;
 				padding: 8px;
+			}
+
+			#moreNews a {
 				color: white;
-				font-family: 'Roboto', sans-serif;
 			}
-
-			.btnLink:hover {
-				color: lightsteelblue;
-				text-decoration: none;
-			}
-
-
 
 			#staffPicks {
 				float: left;
+
 				width: 25%;
-				padding: 2px;
+
 				border: 2px solid gray;
 				border-radius: 12px;
 				background-color: #74c998;
@@ -232,7 +161,7 @@
 				width: 35%;
 				margin-left: 7.5%;
 				margin-right: auto;
-				padding: 2px;
+
 				border: 2px solid gray;
 				border-radius: 12px;
 				background-color: #ebffff;
@@ -241,10 +170,13 @@
 
 			#patronPicks {
 				float: right;
+
 				width: 25%;
-				padding: 2px;
+
 				border: 2px solid gray;
 				border-radius: 12px;
+				margin-bottom: 10px;
+
 				background-color: #73c3c6;
 
 			}
@@ -263,12 +195,8 @@
 				border-bottom: 2px solid gray;
 			}
 
-			.nextRead p {
+			.nextRead h4 {
 				text-align: center;
-			}
-
-			.nextRead a:hover {
-				color: blue;
 			}
 
 			.nextRead a {
@@ -321,7 +249,7 @@
 			#closeKey {
 				width: 20px;
 				height: 20px;
-				background-color: #FF5757;
+				background-color: red;
 				margin-left: 20px;
 			}
 
@@ -331,80 +259,16 @@
 				background-color: #74c998;
 				margin-left: 20px;
 			}
+		}
 
+		@media (max-width: 990px) {
 			.navbar-collapse {
 				background-color: #00387a;
 
 			}
 		}
 
-
-
-
-
-		@media(max-width:799px) {
-
-			h1,
-			h2,
-			h3,
-			h4,
-			h5,
-			h6 {
-				font-family: 'Questrial', sans-serif;
-			}
-
-			p {
-				font-family: 'Roboto', sans-serif;
-			}
-
-			a.skip-main {
-				left: -999px;
-				position: absolute;
-				top: auto;
-				color: #000;
-				background: #fff;
-				width: 1px;
-				height: 1px;
-				overflow: hidden;
-				z-index: -999;
-			}
-
-			a.skip-main:focus,
-			a.skip-main:active {
-				color: #000;
-				background: #fff;
-				left: auto;
-				top: auto;
-				width: 30%;
-				height: auto;
-				overflow: auto;
-				margin: 5px 30%;
-				text-align: center;
-				font-size: 1.3em;
-				z-index: 999;
-			}
-
-			h2.skip-main {
-				clip: rect(0 0 0 0);
-				height: 1px;
-				margin: -1px;
-				overflow: hidden;
-				padding: 0;
-				position: absolute;
-				width: 1px;
-			}
-
-			h2.skip-main :focus {
-				clip: rect(0 0 0 0);
-				height: auto;
-				margin: auto;
-				overflow: hidden;
-				padding: auto;
-				position: relative;
-				width: auto;
-			}
-
-
+		@media(max-width:599px) {
 
 			nav {
 				grid-column-start: 1;
@@ -412,7 +276,6 @@
 				grid-row-start: 2;
 				grid-row-end: 3;
 				z-index: 3;
-				font-family: 'Roboto', sans-serif;
 			}
 
 			.btn-outline-success {
@@ -452,7 +315,7 @@
 				grid-row-start: 3;
 				grid-row-end: 4;
 				text-align: center;
-
+				border-left: 2px #00387a solid;
 
 			}
 
@@ -463,21 +326,14 @@
 				grid-column-end: 3;
 				grid-row-start: 4;
 				grid-row-end: 5;
-				margin-top: 20px;
 				border-top: 2px #00387a solid;
 
 			}
 
 
 			#logo {
-				width: 125px;
+				width: 290px;
 				height: auto;
-				float: left;
-				display: none;
-			}
-
-			#libraryName {
-				margin-top: 40px;
 			}
 
 			.weeklyHours {
@@ -497,7 +353,6 @@
 
 			.weeklyHours ul {
 				line-height: 27px;
-				font-family: 'Roboto', sans-serif;
 
 
 			}
@@ -514,25 +369,23 @@
 
 
 
-			.btnLink {
+			#moreNews {
 				border: 2px solid white;
 				float: right;
 				background-color: #4a6faf;
-				margin-right: 30px;
+				margin-right: 20px;
 				padding: 8px;
-				color: white;
-				font-family: 'Roboto', sans-serif;
 			}
 
-			.btnLink:hover {
-				color: lightsteelblue;
-				text-decoration: none;
+			#moreNews a {
+				color: white;
 			}
 
 			#staffPicks {
 				float: left;
+
 				width: 25%;
-				padding: 2px;
+
 				border: 2px solid gray;
 				border-radius: 12px;
 				background-color: #74c998;
@@ -544,7 +397,7 @@
 				width: 35%;
 				margin-left: 7.5%;
 				margin-right: auto;
-				padding: 2px;
+
 				border: 2px solid gray;
 				border-radius: 12px;
 				background-color: #ebffff;
@@ -553,10 +406,13 @@
 
 			#patronPicks {
 				float: right;
+
 				width: 25%;
-				padding: 2px;
+
 				border: 2px solid gray;
 				border-radius: 12px;
+				margin-bottom: 10px;
+
 				background-color: #73c3c6;
 
 			}
@@ -575,12 +431,8 @@
 				border-bottom: 2px solid gray;
 			}
 
-			.nextRead p {
+			.nextRead h4 {
 				text-align: center;
-			}
-
-			.nextRead a:hover {
-				color: blue;
 			}
 
 			.nextRead a {
@@ -633,7 +485,7 @@
 			#closeKey {
 				width: 20px;
 				height: 20px;
-				background-color: #FF5757;
+				background-color: red;
 				margin-left: 20px;
 			}
 
@@ -643,18 +495,15 @@
 				background-color: #74c998;
 				margin-left: 20px;
 			}
+		}
 
+		@media (max-width: 990px) {
 			.navbar-collapse {
 				background-color: #00387a;
 
 			}
-
-			#fullCalendarLink {
-				margin-bottom: 50px;
-				float: none;
-			}
 		}
-
+		}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="jquery-ui.js"></script>
@@ -701,7 +550,7 @@
 								dayDate.setDate(day);
 								for (c = 0; c < f.hours.length; c++) {
 									if (dayDate.getDay() == c && f.hours[c].status == "closed") {
-										cell.style.backgroundColor = "#FF5757";
+										cell.style.backgroundColor = "red";
 									}
 								}
 
@@ -769,7 +618,7 @@
 						$(".upcomingEvents").append("<p tabindex = '0'>Tomorrow: No event ");
 					}
 
-					$("aside").append("<a href = '' class = 'btnLink' id = 'fullCalendarLink' role = 'link'>Full Calendar");
+					$("aside").append("<a href = '' style = 'margin-left: 200px;'>Full Calendar");
 
 				});
 			});
@@ -780,24 +629,13 @@
 
 
 		});
-
 	</script>
 </head>
 
-<body role="document">
-
-	<!-- Bypass block-->
-
-	<div class="text">
-		<a class="skip-main" href="#main" aria-label="Click here to skip to main">Skip to main</a>
-	</div>
-
+<body>
 	<div id="container">
-
 		<header role="banner">
-			<img src="websiteimages/books.png" id="logo" alt="whitley county library logo">
-
-			<h1 tabindex="0" id="libraryName">Whitley County Public Library</h1>
+			<a href="whitleylibraryhome.html"><img id="logo" src="websiteimages/books.png" alt="Whitley County Public Library logo"></a>
 		</header>
 
 		<nav role="navigation" class="navbar navbar-expand-lg navbar-dark" style="background-color: #00387a;">
@@ -811,20 +649,20 @@
 						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="programs" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Programs
 						</a>
-						<div class="dropdown-menu" aria-labelledby="programs">
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#">Children's Library</a>
 							<a class="dropdown-item" href="#">Community Room Events</a>
 
 						</div>
 					</li>
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="eLibrary" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							E-Library
 						</a>
-						<div class="dropdown-menu" aria-labelledby="eLibrary">
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item" href="#">Cypress Resume</a>
 							<a class="dropdown-item" href="#">News Bank</a>
 							<a class="dropdown-item" href="#">Freegal: Free Music</a>
@@ -837,10 +675,10 @@
 						</div>
 					</li>
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="business" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Resources
 						</a>
-						<div class="dropdown-menu" aria-labelledby="business">
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<h6 tabindex="0">Business/Finance</h6>
 							<a class="dropdown-item" href="#">Federal Printable Tax Forms</a>
 							<a class="dropdown-item" href="#">KY Printable Tax Forms</a>
@@ -865,7 +703,7 @@
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="accessibility.html" tabindex="0" aria-disabled="true">Accessibility Page</a>
+						<a class="nav-link" href="#" tabindex="0" aria-disabled="true">Accessibility Page</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#" tabindex="0" aria-disabled="true">Contact Us
@@ -883,7 +721,7 @@
 			</div>
 		</nav>
 
-		<main role="main" id="main">
+		<main role="main">
 			<br>
 			<h2 tabindex="0">News</h2>
 			<div class="row" style="z-index: 1;">
@@ -912,31 +750,31 @@
 				</div>
 			</div>
 			<div id="moreNews">
-				<a href="#" class="btnLink" role="link">Library news</a>
+				<a href="#">Library news</a>
 			</div>
 			<br>
 			<br>
 			<br>
 			<div class="media">
 
-				<img src="websiteimages/techtips.jpg" class="mr-3" alt="Tech tips">
+				<img src="websiteimages/techtips.jpg" class="mr-3" alt="Tech tips graphic">
 				<div class="media-body">
-					<div tabindex="0" style="font-family: 'Roboto', sans-serif;">
+					<div class="info" tabindex="0">
 						Having trouble with something in our eLibrary? Check out these Tech Tips for solutions to common technical problems.<br>
 					</div>
-					<a href="#" class="btnLink" role="link">Technology Tips</a>
+					<a href="#" style="float: right; ">Technology Tips</a>
 				</div>
 
 			</div>
 			<br>
 			<div class="media">
 
-				<img src="websiteimages/bookmobile.jpg" class="mr-3" alt="Bookmobile">
+				<img src="websiteimages/bookmobile.jpg" class="mr-3" alt="Bookmobile picture">
 				<div class="media-body">
-					<div tabindex="0" style="font-family: 'Roboto', sans-serif;">
+					<div class="info" tabindex="0">
 						Make the Library come to you with the Bookmobile. Find the Bookmobile schedule and learn how to get Bookmobile service yourself.<br>
 					</div>
-					<a href="#" class="btnLink" role="link">Bookmobile Service</a>
+					<a href="#" style="float: right;">Bookmobile Service</a>
 				</div>
 
 			</div>
@@ -945,19 +783,24 @@
 				<h2 tabindex="0">Find your next read!</h2>
 				<br>
 				<a href="#">
-					<div id="staffPicks" role="link" style="padding-top: 15px;">
-						<p>Staff Picks</p>
+					<div id="staffPicks">
+						<h4>Staff Picks</h4>
 					</div>
 				</a>
 
-				<a href="#" role="link">
-					<div id="nytBestsellers" style="padding-top: 15px;">
-						<p>NYT Bestsellers</p>
+
+				<a href="#">
+					<div id="nytBestsellers">
+						<h4>NYT Bestsellers</h4>
+
+
 					</div>
 				</a>
-				<a href="#" role="link">
-					<div id="patronPicks" style="padding-top: 15px;">
-						<p>Patron Picks</p>
+				<a href="#">
+					<div id="patronPicks">
+						<h4>Patron Picks</h4>
+
+
 					</div>
 				</a>
 			</div>
@@ -985,7 +828,7 @@
 			<br>
 
 
-			<table class="calandar">
+			<table class="calandar" border="1">
 				<tr>
 					<th colspan="7" class="monthTitle">Calendar</th>
 				</tr>
@@ -1023,14 +866,11 @@
 			</div>
 
 			<div id="socials">
-				<a href="#" class="fa fa-facebook" aria-label="Facebook icon" role="link"></a>
-				<a href="#" class="fa fa-rss" aria-label="RSS icon" role="link"></a>
-				<a href="#" class="fa fa-twitter" aria-label="Twitter icon" role="link"></a>
+				<a href="#" class="fa fa-facebook" aria-label="Facebook icon"></a>
+				<a href="#" class="fa fa-rss" aria-label="RSS icon"></a>
+				<a href="#" class="fa fa-twitter" aria-label="Twitter icon"></a>
 			</div>
 		</footer>
 	</div>
 
-
-</body>
-
-</html>
+</body></html>
