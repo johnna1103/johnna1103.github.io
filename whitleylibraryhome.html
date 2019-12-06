@@ -210,6 +210,11 @@
 				font-family: 'Roboto', sans-serif;
 			}
 
+			.btnLink:hover {
+				color: lightsteelblue;
+				text-decoration: none;
+			}
+
 
 
 			#staffPicks {
@@ -447,7 +452,7 @@
 				grid-row-start: 3;
 				grid-row-end: 4;
 				text-align: center;
-				
+
 
 			}
 
@@ -519,7 +524,10 @@
 				font-family: 'Roboto', sans-serif;
 			}
 
-
+			.btnLink:hover {
+				color: lightsteelblue;
+				text-decoration: none;
+			}
 
 			#staffPicks {
 				float: left;
@@ -640,8 +648,8 @@
 				background-color: #00387a;
 
 			}
-			
-			#fullCalendarLink{
+
+			#fullCalendarLink {
 				margin-bottom: 50px;
 				float: none;
 			}
@@ -761,7 +769,7 @@
 						$(".upcomingEvents").append("<p tabindex = '0'>Tomorrow: No event ");
 					}
 
-					$("aside").append("<a href = '' class = 'btnLink' id = 'fullCalendarLink'>Full Calendar");
+					$("aside").append("<a href = '' class = 'btnLink' id = 'fullCalendarLink' role = 'link'>Full Calendar");
 
 				});
 			});
@@ -904,7 +912,7 @@
 				</div>
 			</div>
 			<div id="moreNews">
-				<a href="#" class="btnLink">Library news</a>
+				<a href="#" class="btnLink" role="link">Library news</a>
 			</div>
 			<br>
 			<br>
@@ -913,10 +921,10 @@
 
 				<img src="websiteimages/techtips.jpg" class="mr-3" alt="Tech tips">
 				<div class="media-body">
-					<div class="info" tabindex="0">
+					<div tabindex="0" style="font-family: 'Roboto', sans-serif;">
 						Having trouble with something in our eLibrary? Check out these Tech Tips for solutions to common technical problems.<br>
 					</div>
-					<a href="#" class="btnLink">Technology Tips</a>
+					<a href="#" class="btnLink" role="link">Technology Tips</a>
 				</div>
 
 			</div>
@@ -925,10 +933,10 @@
 
 				<img src="websiteimages/bookmobile.jpg" class="mr-3" alt="Bookmobile">
 				<div class="media-body">
-					<div class="info" tabindex="0">
+					<div tabindex="0" style="font-family: 'Roboto', sans-serif;">
 						Make the Library come to you with the Bookmobile. Find the Bookmobile schedule and learn how to get Bookmobile service yourself.<br>
 					</div>
-					<a href="#" class="btnLink">Bookmobile Service</a>
+					<a href="#" class="btnLink" role="link">Bookmobile Service</a>
 				</div>
 
 			</div>
@@ -937,24 +945,19 @@
 				<h2 tabindex="0">Find your next read!</h2>
 				<br>
 				<a href="#">
-					<div id="staffPicks">
+					<div id="staffPicks" role="link" style="padding-top: 15px;">
 						<p>Staff Picks</p>
 					</div>
 				</a>
 
-
-				<a href="#">
-					<div id="nytBestsellers">
+				<a href="#" role="link">
+					<div id="nytBestsellers" style="padding-top: 15px;">
 						<p>NYT Bestsellers</p>
-
-
 					</div>
 				</a>
-				<a href="#">
-					<div id="patronPicks">
+				<a href="#" role="link">
+					<div id="patronPicks" style="padding-top: 15px;">
 						<p>Patron Picks</p>
-
-
 					</div>
 				</a>
 			</div>
@@ -1020,9 +1023,9 @@
 			</div>
 
 			<div id="socials">
-				<a href="#" class="fa fa-facebook" aria-label="Facebook icon"></a>
-				<a href="#" class="fa fa-rss" aria-label="RSS icon"></a>
-				<a href="#" class="fa fa-twitter" aria-label="Twitter icon"></a>
+				<a href="#" class="fa fa-facebook" aria-label="Facebook icon" role="link"></a>
+				<a href="#" class="fa fa-rss" aria-label="RSS icon" role="link"></a>
+				<a href="#" class="fa fa-twitter" aria-label="Twitter icon" role="link"></a>
 			</div>
 		</footer>
 	</div>
