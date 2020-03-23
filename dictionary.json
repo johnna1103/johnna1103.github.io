@@ -1,0 +1,92 @@
+{
+	"dictionary": [
+		
+		{
+			"jpn": {
+				"kanji": {
+					"kanjiCharacters": [
+					"猫"	
+				],
+					"kanjiKana": [
+				"ねこ"
+			]
+				},
+				
+				
+				"wholeKanji": "猫",
+				
+				"kana": "ねこ"
+			},
+
+			"eng": {
+				"romaji": "neko",
+				"def": "cat"
+			},
+
+			"class": "noun",
+			"genki_include": "true"
+
+		},
+
+
+		{
+			"jpn": {
+				"kanji": {
+					"kanjiCharacters": [
+					"営",
+					"む"
+				],
+					"kanjiKana": [
+				"いとな",
+				" "
+			]
+				},
+
+				"wholeKanji": "営む",
+				"kana": "いとなむ"
+			},
+
+			"eng": {
+				"romaji": "itonamu",
+				"def": "to run (a business); to operate; to conduct"
+			},
+
+			"class": "verb",
+			"genki_include": "false"
+				},
+		
+
+		{
+			"jpn": {
+				"kanji": {
+					"kanjiCharacters": [
+					"図",
+					"書",
+					"館"	
+				],
+					"kanjiKana": [
+				"と",
+				"しょ",
+				"かん"
+			]
+				},
+				
+				
+				"wholeKanji": "図書館",
+				
+				"kana": "としょかん"
+			},
+
+			"eng": {
+				"romaji": "toshyokan",
+				"def": "library"
+			},
+
+			"class": "noun",
+			"genki_include": "true"
+
+		}
+
+
+]
+}

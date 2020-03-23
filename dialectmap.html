@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Dictionary</title>
+	<title>Dialect Map</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -44,46 +44,92 @@
 			grid-row-end: 4;
 		}
 
-		.infoBox {
-			position: relative;
-			border: 2px solid black;
-			border-radius: 12px;
-			font-size: large;
-			padding-left: 7px;
-			padding-right: 7px;
-			width: 20%;
-			background-color: white;
-			display: table-cell;
-			width: 10%;
+		@media(min-width: 600px) {
 
+			.infoBox {
+				position: relative;
+				border: 2px solid black;
+				border-radius: 12px;
+				font-size: large;
+				padding-left: 7px;
+				padding-right: 7px;
+				width: 20%;
+				background-color: white;
+				display: table-cell;
+			}
+
+			.infoBox h4 {
+				border-bottom: 2px solid gray;
+			}
+
+			td {
+				border: 1px solid #dddddd;
+				text-align: left;
+				padding: 8px;
+			}
+
+			#infoContainer {
+				position: relative;
+				width: 100%;
+			}
+
+			#infoContainerMobile {
+				display: none;
+			}
 		}
 
-		.infoBox h4 {
-			border-bottom: 2px solid gray;
-		}
+		@media (max-width: 599px) {
+			.infoBox {
+				position: relative;
+				border: 2px solid black;
+				border-radius: 12px;
+				font-size: large;
+				padding-left: 7px;
+				padding-right: 7px;
+				width: 20%;
+				background-color: white;
+				display: table-cell;
+			}
 
-		td {
-			border: 1px solid #dddddd;
-			text-align: left;
-			padding: 8px;
-		}
+			.infoBox h4 {
+				border-bottom: 2px solid gray;
+			}
+			
+			table{
+				text-align: center;
+				width: 45%;
+			}
 
-		#infoContainer {
-			position: relative;
-			width: 100%;
+			td {
+				border: 1px solid #dddddd;
+				text-align: left;
+				padding: 8px;
+			}
+			
+			th{
+				position: relative;
+				text-align: center;
+			}
+			
+			#infoContainerMobile {
+				position: relative;
+				display: block;
+				left: 22.5%;
+			}
 		}
-
 	</style>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 	<script>
-		var kansaiShown = 0;
-		var westKantoShown = 0;
-		var hiroshimaShown = 0;
 		$(function() {
 			$(".st0").css("fill", "lightgrey");
 
+			var rowCount = 5;
+			if (rowCount == 5){
+				$("th").css("display", "none");
+			}
+			
 			$("#KansaiDialect").attr("aria-checked", "false");
 			$("#WestKanto").attr("aria-checked", "false");
 			$("#Hiroshima").attr("aria-checked", "false");
@@ -91,56 +137,136 @@
 			$("#WestKanto").attr("tabindex", "0");
 			$("#Hiroshima").attr("tabindex", "0");
 
-			$("#KansaiDialect").hover(function() {
-				$(".st2").css("stroke", "yellow");
-			}, function() {
-				$(".st2").css("stroke", "#1D87A8");
-			});
+			if ($(window).width() >= 600) {
 
-			$("#WestKanto").hover(function() {
-				$(".st1").css("stroke", "yellow");
-			}, function() {
-				$(".st1").css("stroke", "#1D87A8");
-			});
+				$("#KansaiDialect").hover(function() {
+					$(".st2").css("stroke", "yellow");
+				}, function() {
+					$(".st2").css("stroke", "#1D87A8");
+				});
 
-			$("#Hiroshima").hover(function() {
-				$(".st3").css("stroke", "yellow");
-			}, function() {
-				$(".st3").css("stroke", "#1D87A8");
-			});
+				$("#WestKanto").hover(function() {
+					$(".st1").css("stroke", "yellow");
+				}, function() {
+					$(".st1").css("stroke", "#1D87A8");
+				});
 
-			$("#KansaiDialect").on("click keypress", function() {
-				if ($("#KansaiDialect").attr("aria-checked") === "false") {
-					$("#infoContainer").append("<div class='infoBox' id='kansaiBox'><h4>Kansai-ben</h4><div id='kansaiInfo'><table><tr><th>Copula</th></tr><tr><td>や[ya]</td></tr><tr><td>やった[yatta]</td></tr><tr><td>やない[yanai]</td></tr><tr><td>やなかった[yanakatta]</td></tr><tr><td>やって[yatte]</td></tr></table></div></div>");
-					$("#KansaiDialect").attr("aria-checked", "true");
-				} else {
-					$("#kansaiBox").remove();
-					$("#KansaiDialect").attr("aria-checked", "false");
-				}
+				$("#Hiroshima").hover(function() {
+					$(".st3").css("stroke", "yellow");
+				}, function() {
+					$(".st3").css("stroke", "#1D87A8");
+				});
 
-			});
+				$("#KansaiDialect").on("click keypress", function() {
+					if ($("#KansaiDialect").attr("aria-checked") === "false") {
+						$("#infoContainer").append("<div class='infoBox' id='kansaiBox'><h4>Kansai-ben</h4><div id='kansaiInfo'><table><tr><th>Copula</th></tr><tr><td>や[ya]</td></tr><tr><td>やった[yatta]</td></tr><tr><td>やない[yanai]</td></tr><tr><td>やなかった[yanakatta]</td></tr><tr><td>やって[yatte]</td></tr></table></div></div>");
+						$("#KansaiDialect").attr("aria-checked", "true");
+					} else {
+						$("#kansaiBox").remove();
+						$("#KansaiDialect").attr("aria-checked", "false");
+					}
 
-			$("#WestKanto").on("click keypress", function() {
-				if ($("#WestKanto").attr("aria-checked") === "false") {
-					$("#infoContainer").append("<div class='infoBox' id='westKantoBox'><h4>Western Kanto-Ben(Standard)</h4><div id='westKantoInfo'><table><tr><th>Copula</th></tr><tr><td>だ[da]</td></tr><tr><td>だった[datta]</td></tr><tr><td>ない[nai]</td></tr><tr><td>なかった[nakatta]</td></tr><tr><td>で[de]</td></tr></table></div></div>");
-					$("#WestKanto").attr("aria-checked", "true");
-				} else {
-					$("#westKantoBox").remove();
-					$("#WestKanto").attr("aria-checked", "false");
-				}
-			});
+				});
 
-			$("#Hiroshima").on("click keypress", function() {
-				if ($("#Hiroshima").attr("aria-checked") === "false") {
-					$("#infoContainer").append("<div class='infoBox' id='hiroshimaBox'><h4>Hiroshima-ben</h4><div id='hiroshimaInfo'><table><tr><th>Copula</th></tr><tr><td>じゃ[ja]</td></tr><tr><td>じゃった[jatta]</td></tr><tr><td>じゃない[janai]</td></tr><tr><td>じゃなかった[janakatta]</td></tr><tr><td>じゃって[jatte]</td></tr></table></div></div>");
-					$("#Hiroshima").attr("aria-checked", "true");
-				} else {
-					$("#hiroshimaBox").remove();
-					$("#Hiroshima").attr("aria-checked", "false");
-				}
-			});
+				$("#WestKanto").on("click keypress", function() {
+					if ($("#WestKanto").attr("aria-checked") === "false") {
+						$("#infoContainer").append("<div class='infoBox' id='westKantoBox'><h4>Western Kanto-Ben(Standard)</h4><div id='westKantoInfo'><table><tr><th>Copula</th></tr><tr><td>だ[da]</td></tr><tr><td>だった[datta]</td></tr><tr><td>ない[nai]</td></tr><tr><td>なかった[nakatta]</td></tr><tr><td>で[de]</td></tr></table></div></div>");
+						$("#WestKanto").attr("aria-checked", "true");
+					} else {
+						$("#westKantoBox").remove();
+						$("#WestKanto").attr("aria-checked", "false");
+					}
+				});
+
+				$("#Hiroshima").on("click keypress", function() {
+					if ($("#Hiroshima").attr("aria-checked") === "false") {
+						$("#infoContainer").append("<div class='infoBox' id='hiroshimaBox'><h4>Hiroshima-ben</h4><div id='hiroshimaInfo'><table><tr><th>Copula</th></tr><tr><td>じゃ[ja]</td></tr><tr><td>じゃった[jatta]</td></tr><tr><td>じゃない[janai]</td></tr><tr><td>じゃなかった[janakatta]</td></tr><tr><td>じゃって[jatte]</td></tr></table></div></div>");
+						$("#Hiroshima").attr("aria-checked", "true");
+					} else {
+						$("#hiroshimaBox").remove();
+						$("#Hiroshima").attr("aria-checked", "false");
+					}
+
+				});
+			} else if ($(window).width() < 600) {
+				$("#KansaiDialect").on("click keypress", function() {
+
+					if ($("#KansaiDialect").attr("aria-checked") === "false") {
+
+						if (rowCount == 5) {
+							$("th").css("display", "block");
+						}
+
+						$('#presentTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>や[ya]</td></tr>");
+						$('#negativeTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やない[yanai]</td></tr>");
+						$('#pastTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やった[yatta]</td></tr>");
+						$('#negativePastTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やなかった[yanakatta]</td></tr>");
+						$('#teFormCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やって[yatte]</td></tr>");
+
+						$("#KansaiDialect").attr("aria-checked", "true");
+					} else {
+						$(".kansaiRow").remove();
+
+						rowCount = $('table tr').length;
+
+						if (rowCount == 5) {
+							$("th").css("display", "none");
+						}
+						$("#KansaiDialect").attr("aria-checked", "false");
+					}
+				});
+
+				$("#WestKanto").on("click keypress", function() {
+					if ($("#WestKanto").attr("aria-checked") === "false") {
+
+						if (rowCount == 5) {
+							$("th").css("display", "block");
+						}
+						$('#presentTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>だ[da]</td></tr>");
+						$('#negativeTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>ない[nai]</td></tr>");
+						$('#pastTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>だった[datta]</td></tr>");
+						$('#negativePastTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>なかった[nakatta]</td></tr>");
+						$('#teFormCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>で[de]</td></tr>");
+
+						$("#WestKanto").attr("aria-checked", "true");
+					} else {
+						$(".westKantoRow").remove();
+
+						rowCount = $('table tr').length;
+
+						if (rowCount == 5) {
+							$("th").css("display", "none");
+						}
+						$("#WestKanto").attr("aria-checked", "false");
+					}
+				});
+
+				$("#Hiroshima").on("click keypress", function() {
+					if ($("#Hiroshima").attr("aria-checked") === "false") {
+						if (rowCount == 5) {
+							$("th").css("display", "block");
+						}
+						$('#presentTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃ[ja]</td></tr>");
+						$('#negativeTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃない[janai]</td></tr>");
+						$('#pastTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃった[jatta]</td></tr>");
+						$('#negativePastTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃなかった[janakatta]</td></tr>");
+						$('#teFormCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃって[jatte]</td></tr>");
+
+
+						$("#Hiroshima").attr("aria-checked", "true");
+					} else {
+						$(".hiroshimaRow").remove();
+
+						rowCount = $('table tr').length;
+
+						if (rowCount == 5) {
+							$("th").css("display", "none");
+						}
+						$("#Hiroshima").attr("aria-checked", "false");
+					}
+				});
+			}
 		});
-
 	</script>
 </head>
 
@@ -150,9 +276,9 @@
 		<nav>
 			<a href="#">Home</a>
 			<a href="#">Kanji Search</a>
-			<a href="#">Dictionary</a>
+			<a href="dictionarySearch.html">Dictionary</a>
 			<a href="#">Kana Game</a>
-			<a href="#">Dialect Map</a>
+			<a href="dialectmap.html">Dialect Map</a>
 		</nav>
 		<main>
 			<?xml version="1.0" encoding="utf-8"?>
@@ -183,7 +309,6 @@
 						stroke: #1D87A8;
 						stroke-miterlimit: 10;
 					}
-
 				</style>
 				<g id="RestOfCountry">
 					<path class="st0" d="M569.5,558.5h4l2,2v4v5l2,3v2c1,2-2,6-2,6l-6,3l-4,3l-2,3l-5,13l-8-9l-10-5l-12,4l-4,2h-2v4v4l-5,3v2l-4,5h-3
@@ -337,9 +462,27 @@
 			</svg>
 			<br>
 			<div id="infoContainer"></div>
+			<div id="infoContainerMobile">
+				<table id="presentTenseCopula">
+					<tr><th>Present Copula</th></tr>
+				</table>
+				<table id="pastTenseCopula">
+					<tr><th>Past Copula</th></tr>
+				</table>
+				<table id="negativeTenseCopula">
+					<tr><th>Negative Copula</th></tr>
+				</table>
+				<table id="negativePastTenseCopula">
+					<tr><th>Negative-Past Copula</th></tr>
+				</table>
+				<table id="teFormCopula">
+					<tr><th>Te-form</th></tr>
+				</table>
+			</div>
+			<table>
+
+			</table>
 		</main>
 		<footer></footer>
 	</div>
-</body>
-
-</html>
+</body></html>
