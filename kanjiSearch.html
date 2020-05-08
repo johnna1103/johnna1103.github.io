@@ -14,7 +14,7 @@
 			background-color: #FFFFFF;
 			font-family: 'Yanone Kaffeesatz', sans-serif;
 		}
-		
+
 
 		@media (min-width: 600px) {
 			#container {
@@ -24,14 +24,14 @@
 
 			}
 
-			footer{
+			footer {
 				grid-column-start: 1;
 				grid-column-end: 4;
 				grid-row-start: 4;
 				grid-row-end: 5;
 				background-color: #E69597;
 			}
-			
+
 			header {
 				grid-column-start: 1;
 				grid-column-end: 4;
@@ -231,10 +231,6 @@
 			myCanvas.addEventListener('mousedown', mouseDown, false);
 			myCanvas.addEventListener('mousemove', move, false);
 			window.addEventListener('mouseup', mouseUp, false);
-			
-			myCanvas.addEventListener('touchstart', touchStart, false);
-			myCanvas.addEventListener('touchmove', touchMove, false);
-			window.addEventListener('touchend', touchEnd, false);
 
 
 			$.getJSON("kanjiList.json", function(e) {
@@ -242,7 +238,7 @@
 				randKanji = e.kanjiDictionary[randNum].kanji;
 
 				loadKanjiSurface.font = '200px Sawarabi Gothic';
-				
+
 				loadKanjiSurface.fillStyle = "#771D1A";
 
 				loadKanjiSurface.fillText(randKanji, 0, 180, 200);
@@ -370,7 +366,7 @@
 						var pixelDataLoaded = croppedLoadImg.getContext("2d").getImageData(0, 0, croppedLoadImg.width, croppedLoadImg.height);
 						console.log(pixelDataDrawn.data);
 						for (i = 0; i < pixelDataLoaded.data.length; i += 4) {
-							if (pixelDataDrawn.data[i] == pixelDataLoaded.data[i] && pixelDataDrawn.data[i+1] == pixelDataLoaded.data[i+1] && pixelDataDrawn.data[i+2] == pixelDataLoaded.data[i+2]) {
+							if (pixelDataDrawn.data[i] == pixelDataLoaded.data[i] && pixelDataDrawn.data[i + 1] == pixelDataLoaded.data[i + 1] && pixelDataDrawn.data[i + 2] == pixelDataLoaded.data[i + 2]) {
 								correctPx++;
 							}
 
@@ -393,25 +389,54 @@
 
 
 
+			myCanvas.addEventListener("touchstart", function(e) {
+				mousePos = getTouchPos(myCanvas, e);
+				var touch = e.touches[0];
+				var mouseEvent = new MouseEvent("mousedown", {
+					clientX: touch.clientX,
+					clientY: touch.clientY
+				});
+				myCanvas.dispatchEvent(mouseEvent);
+			}, false);
+			myCanvas.addEventListener("touchend", function(e) {
+				var mouseEvent = new MouseEvent("mouseup", {});
+				myCanvas.dispatchEvent(mouseEvent);
+			}, false);
+			myCanvas.addEventListener("touchmove", function(e) {
+				var touch = e.touches[0];
+				var mouseEvent = new MouseEvent("mousemove", {
+					clientX: touch.clientX,
+					clientY: touch.clientY
+				});
+				myCanvas.dispatchEvent(mouseEvent);
+			}, false);
+
+			// Get the position of a touch relative to the canvas
+			function getTouchPos(canvasDom, touchEvent) {
+				var rect = canvasDom.getBoundingClientRect();
+				return {
+					x: touchEvent.touches[0].clientX - rect.left,
+					y: touchEvent.touches[0].clientY - rect.top
+				};
+			}
+
+
+
+
+
 			function mouseDown() {
 				isMouseDown = true;
 				draw();
 			}
-			
-			function touchStart() {
-				hasTouchStarted = true;
-				drawMobile();
-			}
+
+
 
 			function mouseUp() {
 				isMouseDown = false;
 				numberOfStrokes++;
 			}
-			
-			function touchEnd() {
-				hasTouchStarted = false;
-				numberOfStrokes++;
-			}
+
+
 
 			function draw() {
 				surface.beginPath();
@@ -423,17 +448,8 @@
 				surface.closePath();
 				surface.stroke();
 			}
-			
-			function drawMobile() {
-				surface.beginPath();
-				surface.moveTo(previousX, previousY);
-				surface.lineTo(currentX, currentY);
-				surface.lineWidth = 10;
-				surface.strokeStyle = "#771D1A";
 
-				surface.closePath();
-				surface.stroke();
-			}
+
 
 			function move(event) {
 				reposition(event);
@@ -441,13 +457,8 @@
 					draw();
 				}
 			}
-			
-			function touchMove(event) {
-				reposition(event);
-				if (hasTouchStarted === true) {
-					drawMobile();
-				}
-			}
+
+
 
 			function reposition(event) {
 				previousX = currentX;
