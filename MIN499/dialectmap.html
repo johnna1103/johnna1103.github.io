@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Dialect Map</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+
+	<style>
+
+		.active{
+			text-decoration-color: #771D1A;
+		}
+		@media(min-width: 600px) {
+
+			#container {
+				display: grid;
+				grid-template-columns: 10% auto 10%;
+				grid-template-rows: auto 60px auto 50px;
+
+			}
+
+			
+			header {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 1;
+				grid-row-end: 2;
+				border-bottom: 45px solid #E69597;
+				border-radius: 10px;
+			}
+
+			header img {
+				width: 35%;
+				height: auto;
+				margin-left: 30%;
+
+			}
+
+
+			nav {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 2;
+				grid-row-end: 3;
+				display: block;
+			}
+
+			nav a {
+				text-align: center;
+				float: left;
+				text-decoration: none;
+				font-size: 20px;
+				color: black;
+				padding: 42px 20px;
+				font-family: 'Yanone Kaffeesatz', sans-serif;
+			}
+
+			nav a:hover {
+				color: #B9D4D4;
+			}
+
+			#icon {
+				display: none;
+			}
+
+
+
+			main {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 3;
+				grid-row-end: 4;
+			}
+
+			.infoBox {
+				position: relative;
+				border: 2px solid black;
+				border-radius: 12px;
+				font-size: large;
+				padding-left: 7px;
+				padding-right: 7px;
+				width: 20%;
+				background-color: white;
+				display: table-cell;
+			}
+
+			.infoBox h4 {
+				border-bottom: 2px solid gray;
+			}
+
+			td {
+				border: 1px solid #dddddd;
+				text-align: left;
+				padding: 8px;
+			}
+
+			#infoContainer {
+				position: relative;
+				width: 100%;
+			}
+
+			#infoContainerMobile {
+				display: none;
+			}
+		}
+
+		@media (max-width: 599px) {
+
+			#container {
+				display: grid;
+				grid-template-columns: 20% auto 10%;
+				grid-template-rows: auto 60px auto 50px;
+
+			}
+
+			header {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 1;
+				grid-row-end: 2;
+				border-bottom: 45px solid #E69597;
+				border-radius: 10px;
+			}
+
+			header img {
+				width: 35%;
+				height: auto;
+				margin-left: 30%;
+
+			}
+
+			main {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 3;
+				grid-row-end: 4;
+			}
+
+			#icon {
+				grid-column-start: 1;
+				grid-column-end: 2;
+				grid-row-start: 2;
+				grid-row-end: 3;
+				z-index: 1;
+			}
+
+			#icon img {
+				width: 30%;
+			}
+
+			#icon img:hover {
+				background-color: #B9D4D4;
+			}
+
+
+			nav {
+				display: none;
+				background: #3E6E6D;
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 2;
+				grid-row-end: 5;
+				z-index: 0;
+			}
+
+			nav a{
+				text-align: center;
+				width: 100%;
+				margin: 0;
+				float: left;
+				text-decoration: none;
+				font-size: 20px;
+				color: black;
+				padding: 42px 20px;
+				font-family: 'Yanone Kaffeesatz', sans-serif;
+
+			}
+
+			nav a: hover {
+				color: #B9D4D4;
+			}
+
+
+			.infoBox {
+				position: relative;
+				border: 2px solid black;
+				border-radius: 12px;
+				font-size: large;
+				padding-left: 7px;
+				padding-right: 7px;
+				width: 20%;
+				background-color: white;
+				display: table-cell;
+			}
+
+			.infoBox h4 {
+				border-bottom: 2px solid gray;
+			}
+
+			table {
+				text-align: center;
+				width: 45%;
+			}
+
+			td {
+				border: 1px solid #dddddd;
+				text-align: left;
+				padding: 8px;
+			}
+
+			th {
+				position: relative;
+				text-align: center;
+			}
+
+			#infoContainerMobile {
+				position: relative;
+				display: block;
+				left: 22.5%;
+			}
+		}
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script>
+		$(function() {
+			$("#icon").attr("aria-expanded", "false");
+			$("#icon").attr("tabindex", "0");
+			$("#icon").on("click keypress", function() {
+				if ($("#icon").attr("aria-expanded") === "false") {
+
+					$("nav").css("display", "block");
+					$("#icon").attr("aria-expanded", "true");
+				} else {
+					$("nav").css("display", "none");
+
+					$("#icon").attr("aria-expanded", "false");
+				}
+
+			});
+
+			$(window).resize(function() {
+
+				if ($(window).width() >= 600) {
+
+					$("nav").css("display", "block");
+					$("#icon").attr("aria-expanded", "false");
+				} else if ($(window).width() < 600) {
+					$("nav").css("display", "none");
+					$("#icon").attr("aria-expanded", "false");
+				}
+
+
+			});
+			$(".st0").css("fill", "#C0C0C0");
+
+			var rowCount = 5;
+			if (rowCount == 5) {
+				$("th").css("display", "none");
+			}
+
+			$("#KansaiDialect").attr("aria-checked", "false");
+			$("#WestKanto").attr("aria-checked", "false");
+			$("#Hiroshima").attr("aria-checked", "false");
+			$("#KansaiDialect").attr("tabindex", "0");
+			$("#WestKanto").attr("tabindex", "0");
+			$("#Hiroshima").attr("tabindex", "0");
+
+
+			
+
+				if ($(window).width() >= 600) {
+					
+					
+
+					$("#KansaiDialect").hover(function() {
+						$(".st2").css({
+							"stroke": "#E69597",
+							"stroke-width": "3px"
+						});
+					}, function() {
+						$(".st2").css("stroke", "none");
+					});
+
+					$("#WestKanto").hover(function() {
+						$(".st1").css({
+							"stroke": "#E69597",
+							"stroke-width": "3px"
+						});
+					}, function() {
+						$(".st1").css("stroke", "none");
+					});
+
+					$("#Hiroshima").hover(function() {
+						$(".st3").css({
+							"stroke": "#E69597",
+							"stroke-width": "3px"
+						});
+					}, function() {
+						$(".st3").css("stroke", "none");
+					});
+
+					$("#KansaiDialect").on("click keypress", function() {
+						if ($("#KansaiDialect").attr("aria-checked") === "false") {
+							$("#infoContainer").append("<div class='infoBox' id='kansaiBox'><h4>Kansai-ben</h4><div id='kansaiInfo'><table><tr><th>Copula</th></tr><tr><td>や[ya]</td></tr><tr><td>やった[yatta]</td></tr><tr><td>やない[yanai]</td></tr><tr><td>やなかった[yanakatta]</td></tr><tr><td>やって[yatte]</td></tr></table></div></div>");
+							$("#KansaiDialect").attr("aria-checked", "true");
+						} else {
+							$("#kansaiBox").remove();
+							$("#KansaiDialect").attr("aria-checked", "false");
+						}
+
+					});
+
+					$("#WestKanto").on("click keypress", function() {
+						if ($("#WestKanto").attr("aria-checked") === "false") {
+							$("#infoContainer").append("<div class='infoBox' id='westKantoBox'><h4>Western Kanto-Ben(Standard)</h4><div id='westKantoInfo'><table><tr><th>Copula</th></tr><tr><td>だ[da]</td></tr><tr><td>だった[datta]</td></tr><tr><td>ない[nai]</td></tr><tr><td>なかった[nakatta]</td></tr><tr><td>で[de]</td></tr></table></div></div>");
+							$("#WestKanto").attr("aria-checked", "true");
+						} else {
+							$("#westKantoBox").remove();
+							$("#WestKanto").attr("aria-checked", "false");
+						}
+					});
+
+					$("#Hiroshima").on("click keypress", function() {
+						if ($("#Hiroshima").attr("aria-checked") === "false") {
+							$("#infoContainer").append("<div class='infoBox' id='hiroshimaBox'><h4>Hiroshima-ben</h4><div id='hiroshimaInfo'><table><tr><th>Copula</th></tr><tr><td>じゃ[ja]</td></tr><tr><td>じゃった[jatta]</td></tr><tr><td>じゃない[janai]</td></tr><tr><td>じゃなかった[janakatta]</td></tr><tr><td>じゃって[jatte]</td></tr></table></div></div>");
+							$("#Hiroshima").attr("aria-checked", "true");
+						} else {
+							$("#hiroshimaBox").remove();
+							$("#Hiroshima").attr("aria-checked", "false");
+						}
+
+					});
+				} else if ($(window).width() < 600) {
+					$("nav").css("display","none");
+					$("#icon").attr("aria-expanded", "false");
+					$("#KansaiDialect").on("click keypress", function() {
+
+						if ($("#KansaiDialect").attr("aria-checked") === "false") {
+
+							if (rowCount == 5) {
+								$("th").css("display", "block");
+							}
+
+							$('#presentTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>や[ya]</td></tr>");
+							$('#negativeTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やない[yanai]</td></tr>");
+							$('#pastTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やった[yatta]</td></tr>");
+							$('#negativePastTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やなかった[yanakatta]</td></tr>");
+							$('#teFormCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やって[yatte]</td></tr>");
+
+							$("#KansaiDialect").attr("aria-checked", "true");
+						} else {
+							$(".kansaiRow").remove();
+
+							rowCount = $('table tr').length;
+
+							if (rowCount == 5) {
+								$("th").css("display", "none");
+							}
+							$("#KansaiDialect").attr("aria-checked", "false");
+						}
+					});
+
+					$("#WestKanto").on("click keypress", function() {
+						if ($("#WestKanto").attr("aria-checked") === "false") {
+
+							if (rowCount == 5) {
+								$("th").css("display", "block");
+							}
+							$('#presentTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>だ[da]</td></tr>");
+							$('#negativeTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>ない[nai]</td></tr>");
+							$('#pastTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>だった[datta]</td></tr>");
+							$('#negativePastTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>なかった[nakatta]</td></tr>");
+							$('#teFormCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>で[de]</td></tr>");
+
+							$("#WestKanto").attr("aria-checked", "true");
+						} else {
+							$(".westKantoRow").remove();
+
+							rowCount = $('table tr').length;
+
+							if (rowCount == 5) {
+								$("th").css("display", "none");
+							}
+							$("#WestKanto").attr("aria-checked", "false");
+						}
+					});
+
+					$("#Hiroshima").on("click keypress", function() {
+						if ($("#Hiroshima").attr("aria-checked") === "false") {
+							if (rowCount == 5) {
+								$("th").css("display", "block");
+							}
+							$('#presentTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃ[ja]</td></tr>");
+							$('#negativeTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃない[janai]</td></tr>");
+							$('#pastTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃった[jatta]</td></tr>");
+							$('#negativePastTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃなかった[janakatta]</td></tr>");
+							$('#teFormCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃって[jatte]</td></tr>");
+
+
+							$("#Hiroshima").attr("aria-checked", "true");
+						} else {
+							$(".hiroshimaRow").remove();
+
+							rowCount = $('table tr').length;
+
+							if (rowCount == 5) {
+								$("th").css("display", "none");
+							}
+							$("#Hiroshima").attr("aria-checked", "false");
+						}
+					});
+				}
+			
+
+		});
+	</script>
+</head>
+
+<body>
+	<div id="container">
+		<header><img src="jpnLogo.png"></header>
+		<div id="icon"><img src="icon.png"></div>
+		<nav>
+			<a href="home.html">Home</a>
+			<a href="kanjiSearch.html">Kanji Practice</a>
+			<a href="dictionarySearch.html">Dictionary</a>
+			<a href="dialectmap.html">Dialect Map</a>
+		</nav>
+		
+		<main>
+			<?xml version="1.0" encoding="utf-8"?>
+			<!-- Generator: Adobe Illustrator 24.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+			<svg version="1.1" id="Japan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1366 768" style="enable-background:new 0 0 1366 768;" xml:space="preserve">
+				<style type="text/css">
+					.st0 {
+						fill: #D9E04F;
+						stroke: #B9D4D4;
+						stroke-miterlimit: 10;
+					}
+
+					.st1 {
+						fill: #3E6E6D;
+						stroke: #B9D4D4;
+						stroke-miterlimit: 10;
+					}
+
+					.st2 {
+						fill: #E4BBC1;
+						stroke: #B9D4D4;
+						stroke-width: 0.25;
+						stroke-miterlimit: 10;
+					}
+
+					.st3 {
+						fill: #771D1A;
+						stroke: #B9D4D4;
+						stroke-miterlimit: 10;
+					}
+				</style>
+				<g id="RestOfCountry">
+					<path class="st0" d="M569.5,558.5h4l2,2v4v5l2,3v2c1,2-2,6-2,6l-6,3l-4,3l-2,3l-5,13l-8-9l-10-5l-12,4l-4,2h-2v4v4l-5,3v2l-4,5h-3
+		v4l-2,4h2l-2,4h-4h-3h-3c-8-10-8-10-8-10v-3v-3v-7l3-1l-3-4h-2v-5h-3h-4l-4,2h-3l11-5l12-8l3-5l2-6l3-2l3-3l1-4l6,7l2,2v2v-2l5-2
+		l4,2h3h5l3-2v-7l-3-5l6,1l4-1l3-5h4l4,4l2-4l6,6L569.5,558.5z" />
+					<polyline class="st0" points="566.5,544.5 563.5,541.5 561.5,541.5 561.5,544.5 561.5,547.5 563.5,547.5 566.5,547.5 566.5,542.5 	
+		" />
+					<polygon class="st0" points="513.5,555.5 514.5,556.5 518.5,555.5 518.5,554.5 520.5,550.5 516.5,554.5 515.5,554.5 513.5,553.5 
+		511.5,555.5 	" />
+					<polygon class="st0" points="515.5,558.5 515.5,560.5 513.5,558.5 516,556.5 	" />
+					<path class="st0" d="M490.5,624.5l2,3L490.5,624.5z" />
+					<polygon class="st0" points="404.5,725.5 410.5,727.5 410.5,729.5 410.5,732.5 407.5,732.5 404.5,734.5 400.5,731.5 400.5,728.5 	
+		" />
+					<polygon class="st0" points="422.5,718.5 422.5,722.5 420.5,725.5 420.5,730.5 423.5,726.5 428.5,718.5 428.5,713.5 428.5,710.5 	
+		" />
+					<path class="st0" d="M393.5,725.5" />
+					<polygon class="st0" points="381.5,662.5 376.5,668.5 375.5,667.5 379.5,661.5 	" />
+					<polygon class="st0" points="386.5,657.5 385.5,659.5 384.5,658.5 	" />
+					<path class="st0" d="M431.5,688.5l-5,4l-2,3l-4,3h-4h-2l2-5l4-5v-3l-2-3l-1-2l-1-3l-4-5h2l3,2l3-2v-4h-3l-3-2l-2,2l-2,4l-1,5v5l1,2
+		v2l2,2v2l-2,2l-3-1l-2-2v-2h-2h-3h-5l1-2l-1-3l-2-3h4l3-3v-4l2-2l-2-4l-4-5v-2l1-2l1-3l-1-3v-2v-2h3h2l3-2l9-13l-2-4l4-4h-4l-2,1
+		h-2l7-4l2-4l-3-4l-4-3v-3v-3l-2-3l-3-3l-3-1c-2,3-2,5-2,5v2v2l-1,3l-2,2l3,1l5,1v2v3v3l-6,3l-2-4l3-2l-2-2l-1-2h-2h-2l-2,2l-3,3
+		l-3,2v-2l1-2l-1-2l-1-2l-3-1l-3-3v-4l3-2v-3l2,2l1,3v4l2,2l6,1l-1-4v-2v-4h-2h-3v-3l-2,1v-3c-2,1-3,1-3,1l-3-4v-3l2-2h-2h-2l-3,1v3
+		h-4l2-2v-2l2-2h2h3v-2h2l4,2l2,2v-2h3v-2h-4l-1-2h2h2v-3h4l2,3l4-1l2-2l-1-2l3-3l3,3h3l2-1l2-2h-6v-2h2h2l3-1v-1v-2l2-2h3h2l2-4h3
+		l-1,4h2l2-2l3,2l4-4l-2,6l2,3l2,4l2,4h4l4,1h3l1-1l3-2h3l3,2l2,2v5l-3,4l-2,2h-3l-1,2l1,2l3,1h10l-3,6l3,4l4-1l-4,2l1,5h2l1,4l-4,1
+		l-1,1v2l-2,2l-5,5l-2,4l-1,3v1l-4,8l-3,10l-2,13l-1,6l-3,3l-1,2v2l-1,2v2l-3-2l-3-1l-2-2l-2,1l-3,2l2,2L431.5,688.5z" />
+					<path class="st0" d="M394.5,724.5" />
+					<polygon class="st0" points="346.5,617.5 344.5,619.5 342.5,620.5 339.5,619.5 339.5,615.5 339.5,612.5 344.5,612.5 346.5,610.5 
+		346.5,615.5 	" />
+					<polygon class="st0" points="358.5,594.5 358.5,602.5 358.5,604.5 358.5,608.5 356.5,610.5 354.5,607.5 351.5,610.5 348.5,610.5 
+		353.5,604.5 356.5,602.5 	" />
+					<polygon class="st0" points="386.5,563.5 386.5,567.5 388.5,571.5 385.5,571.5 384.5,569.5 383.5,569.5 383.5,567.5 	" />
+					<polygon class="st0" points="394.5,627.5 398.5,627.5 400.5,629.5 402.5,631.5 404.5,629.5 407.5,629.5 409.5,629.5 408.5,633.5 
+		406.5,633.5 402.5,633.5 399.5,636.5 394.5,642.5 391.5,642.5 391.5,639.5 393.5,638.5 391.5,635.5 393.5,631.5 	" />
+					<polygon class="st0" points="396.5,642.5 399.5,645.5 398.5,647.5 396.5,647.5 394.5,645.5 	" />
+					<polygon class="st0" points="379.5,526.5 379.5,529.5 377.5,531.5 375.5,535.5 374.5,536.5 374.5,538.5 374.5,539.5 369.5,539.5 
+		369.5,536.5 371.5,534.5 372.5,533.5 372.5,529.5 374.5,526.5 376.5,526.5 379.5,524.5 	" />
+					<polygon class="st0" points="367.5,541.5 369.5,541.5 371.5,541.5 371.5,544.5 369.5,550.5 367.5,550.5 364.5,550.5 	" />
+					<polygon class="st0" points="528.5,457.5 531.5,460.5 531.5,463.5 529.5,463.5 528.5,464.5 526.5,464.5 526.5,460.5 	" />
+					<polygon class="st0" points="518.5,467.5 520.5,467.5 520.5,469.5 518.5,469.5 515.5,469.5 	" />
+					<path class="st0" d="M538.5,496.5h-3h-4h-5v-3h-4h-2h-5l-2,1l-5,2l-4,2h-3v2l2,2l-2,4v6h2l2,4h4h5h3h3c1.01,0,2.02,0,3.04,0
+		c0.96,0,1.93,0,2.89,0c0.02,0,0.05,0,0.07,0c0.67,0,1.33,0,2,0l3-2l3-2l4-4v-4v-4.07V496.5z" />
+					<polyline class="st0" points="814.5,488.5 811.5,479.5 808.5,479.5 809.5,475.5 806.5,471.5 804.5,463.5 806.5,456.5 806.5,451.5 
+		808.5,446.5 808.5,441.5 811.5,435.5 814.5,432.5 818.5,429.5 819.5,417.5 820.5,404.5 819.5,397.5 816.5,393.5 815.5,384.5 
+		815.5,376.5 819.5,370.5 819.5,365.5 824.5,362.5 829.5,361.5 833.5,365.5 836.5,365.5 834.5,356.5 833.5,353.5 832.5,350.5 
+		835.5,347.5 835.5,345.5 839.5,343.5 837.5,338.5 839.5,338.5 839.5,336.5 842.5,331.5 845.5,331.5 846.5,328.5 848.5,321.5 
+		847.5,318.5 851.5,314.5 851.5,310.5 851.5,306.5 849.5,306.5 849.5,301.5 847.5,286.5 841.5,277.5 837.5,269.5 837.5,265.5 
+		833.5,261.5 831.5,261.5 829.5,261.5 827.5,251.5 825.5,243.5 827.5,236.5 827.5,220.5 820.5,224.5 808.5,216.5 804.5,234.5 
+		807.5,234.5 812.5,232.5 818.5,227.5 820.5,231.5 820.5,234.5 817.5,246.5 814.5,244.5 810.5,241.5 807.5,242.5 807.5,247.5 
+		804.5,248.5 803.5,247.5 801.5,244.5 799.5,238.5 797.5,231.5 794.5,232.5 792.5,231.5 788.5,231.5 788.5,234.5 786.5,235.5 
+		788.5,238.5 788.5,245.5 786.5,250.5 782.5,254.5 777.5,254.5 775.5,256.5 772.5,259.5 772.5,262.5 774.5,262.5 775.5,266.5 
+		779.5,272.5 780.5,274.5 780.5,278.5 778.5,281.5 776.5,284.5 775.5,287.5 768.5,290.5 769.36,292.23 770.5,294.5 772.5,294.5 
+		774.5,294.5 777.5,294.5 780.5,298.5 780.5,305.5 780.5,312.5 778.5,320.5 773.5,333.5 773.5,339.5 771.5,344.5 763.5,356.5 
+		761.5,364.5 759.5,372.5 758.5,379.5 753.5,383.5 747.5,385.5 737.5,392.5 735.5,401.5 728.5,410.5 722.5,415.5 712.5,422.5 
+		709.5,421.5 705.5,427.5 693.5,431.5 685.5,434.5 685.5,435.5 683.5,440.5 679.5,442.5 676.5,441.5 671.5,439.5 669.5,436.5 
+		671.5,435.5 671.5,431.5 671.5,429.5 671.5,426.5 669.5,426.5 665.5,429.5 665.5,425.5 670.5,423.5 665.5,421.5 665.5,418.5 
+		672.5,420.5 674.5,416.5 678.5,417.5 678.5,414.5 678.5,412.5 679.5,410.5 681.5,410.5 683.5,406.5 680.5,406.5 676.5,406.5 
+		668.5,409.5 662.5,414.5 660.5,415.5 658.5,421.5 660.5,426.5 660.5,431.5 658.5,439.5 649.5,453.5 639.5,463.5 638.5,463.5 
+		636.5,465.5 634.5,469.5 634.5,470.5 633.5,472.5 631.5,476.5 631.5,479.5 631.5,480.5 634.5,488.5 638.5,492.5 641.5,492.5 
+		647.5,504.5 646.09,510.74 648.5,512.5 650.5,512.5 658.5,520.5 660.5,523.5 662.5,532.5 662.5,536.5 667.5,536.5 665.5,533.5 
+		669.5,533.5 673.5,533.5 675.5,533.5 679.5,532.5 682.5,536.5 679.5,538.5 677.5,538.5 675.5,539.5 671.5,538.5 671.5,540.29 
+		671.5,542.5 673.43,542.5 676.5,542.5 684.5,539.5 687.5,539.5 696.5,539.5 705.5,540.5 711.5,542.5 716.5,542.5 716.5,539.5 
+		716.5,536.5 720.5,533.5 720.5,528.5 722.5,528.5 726.5,524.5 726.5,522.5 728.5,519.5 732.5,517.5 735.5,520.5 739.5,520.5 
+		739.5,523.5 737.5,523.5 735.5,524.5 735.5,530.5 735.5,534.5 735.5,538.5 739.5,542.5 745.5,538.5 745.5,534.5 749.5,528.5 
+		749.5,526.5 749.5,520.5 749.5,517.5 743.5,507.5 735.5,507.5 731.5,506.5 729.5,502.5 734.5,500.5 737.5,497.5 739.5,492.5 
+		737.5,488.5 739.5,487.5 736.5,482.5 734.5,479.5 732.5,479.5 731.5,473.5 729.5,471.5 729.5,466.5 731.5,461.5 726.5,459.5 
+		722.5,454.5 722.5,449.5 728.5,444.5 734.5,442.5 741.5,439.5 741.5,437.5 743.5,434.5 744.5,429.5 747.5,429.5 751.5,432.5 
+		757.5,435.5 757.5,442.5 756.5,447.5 757.5,449.5 761.5,450.5 760.5,455.5 762.5,460.5 762.5,463.5 765.5,471.5 771.5,479.5 
+		777.5,479.5 780.5,479.5 785.5,483.5 791.5,484.5 800.5,481.5 802.5,479.5 	" />
+					<polygon class="st0" points="755.5,185.5 759.5,184.5 759.5,187.5 759.5,190.5 755.5,192.5 755.5,186.5 	" />
+					<polygon class="st0" points="803.5,33.5 804.5,33.5 806.5,33.5 806.5,36.5 806.5,40.5 	" />
+					<polygon class="st0" points="811.5,43.5 812.5,43.5 814.5,43.5 814.5,44.5 814.5,46.5 814.5,49.5 811.5,48.5 809.5,46.5 	" />
+					<polyline class="st0" points="981.5,112.5 983.5,112.5 982.5,114.5 981.5,113.5 980.5,112.5 	" />
+					<polygon class="st0" points="972.5,116.5 975.5,116.5 975.5,117.5 	" />
+					<polygon class="st0" points="977.5,65.5 981.5,67.5 981.5,69.5 985.5,69.5 989.5,68.5 990.5,68.5 990.5,69.5 990.5,71.5 
+		988.5,71.5 986.5,73.5 983.5,76.5 980.5,77.5 977.5,77.5 975.5,80.5 973.5,82.5 971.5,84.5 971.5,88.5 971.5,89.5 969.5,89.5 
+		968.5,90.5 968.5,93.5 968.5,94.5 964.5,96.5 962.5,96.5 962.5,99.5 962.5,102.5 962.5,105.5 961.5,107.5 958.5,104.5 956.5,101.5 
+		957.5,98.5 959.5,95.5 964.5,90.5 965.5,86.5 967.5,84.5 971.5,79.5 975.5,70.5 976.5,67.5 	" />
+					<polygon class="st0" points="715.5,384.5 715.5,379.5 716.5,377.5 717.5,375.5 719.5,373.5 722.5,371.5 724.5,369.5 724.5,374.5 
+		724.5,376.5 722.5,379.5 724.5,380.5 726.5,380.5 726.5,384.5 724.5,388.5 722.5,390.5 719.5,392.5 715.5,392.5 713.5,392.5 
+		716.5,389.5 717.5,386.5 719.5,384.5 	" />
+					<polygon class="st0" points="767.5,565.5 767.5,567.5 766.5,567.5 764.5,567.5 	" />
+					<path class="st0" d="M760.94,536.39l-0.44-2.89l1,1c0,0,1-1,1,0s0,3,0,3h-1l-1-2" />
+					<polygon class="st0" points="757.5,551.5 757.5,554.5 755.5,554.5 755.5,552.5 	" />
+					<polygon class="st0" points="752.5,559.5 753.5,560.5 751.5,561.5 	" />
+					<polygon class="st0" points="779.5,611.5 779.5,614.5 775.5,610.5 	" />
+					<path class="st0" d="M538.5,495.5c4,0.65,7.41,0.9,10,1c3.14,0.12,5.47,0.02,6,0c4.79-0.21,7.18-0.27,9-1c3.55-1.43,3.58-3.28,7-4
+		c1.47-0.31,2.65-0.21,5,0c2.98,0.26,3.75,0.78,7,1c1.5,0.1,2.58,0.17,4,0c1.27-0.16,2.97-0.53,6-2c5.44-2.65,6.17-4.47,8-4
+		c1.74,0.45,3.33,2.69,3,5c-0.23,1.6-1.61,1.67-4,4c-3.53,3.45-3.07,5.66-6,7c-1.51,0.69-1.56,0.08-4,1c-2.35,0.89-2.98,1.72-5,2
+		c-1.63,0.23-1.63-0.25-3,0c-2.06,0.38-2.19,1.48-5,3c-2.31,1.25-4.98,1.99-5,2c-1.67,2-3.33,4-5,6c-1.27,3.23-1.78,6.04-2,8
+		c-0.31,2.79-0.47,4.19,0,6c0.56,2.16,1.55,3.33,1,4c-0.85,1.03-5.33-0.14-4,0c-1.33,1.67-2.67,3.33-4,5c-3.1,0.01-6.45,0.38-7,2
+		c-0.49,1.45,1.58,2.94,1,4c-0.97,1.78-7.96-0.21-8,0c-0.03,0.14,3.03,0.72,3,1c-0.04,0.34-4.7,0.9-9-1c-1.28-0.57-3.99-2-4-2
+		c-1.89,3.88-3.69,4.84-5,5c0,0-1,0.12-6-2c-3.79-1.18-5.34-0.76-6,0c-0.77,0.88-0.1,1.97-1,3c-0.89,1.02-2.47,1.02-5,1
+		c-3.26-0.03-3.99-0.68-5,0c-1.3,0.88-0.6,2.31-2,4c-1.13,1.36-3.36,2.59-5,2c-1.98-0.71-1.27-3.41-4-6c-0.31-0.3-2.97-2.76-5-2
+		c-1.19,0.44-0.83,1.48-3,4c-1.24,1.43-2.99,2.99-3,3c0.79,4.1,0,6.02-1,7c-1.08,1.06-3.74,2.35-4,4c-0.01,0.05-0.03,0.22-0.06,0.44
+		c-0.14,1.43,0.14,2.02,0.06,2.56c-0.17,1.02-1.71,2.03-3,2c-1.33-0.04-1.93-1.18-5-5c-2.85-3.54-3.78-4.35-5-5
+		c-1.04-0.56-2.39-1.28-4-1c-1.82,0.31-1.86,1.54-4,2c-1.75,0.37-3.85,0-4,0c-1.33,0-2.67,0-4,0c-1.58,2.33-2.97,2.93-4,3
+		c-1.64,0.11-3.97-0.99-4-1c-0.54-1.71-1.44-3.61-3-4c-2.7-0.68-4.95,3.76-7,3c-1.88-0.69-2.79-5.44-1-8c1.13-1.62,2.87-1.67,3-3
+		c0.14-1.4-1.74-1.83-2-4c-0.02-0.14-0.23-2.16,1-3c0.48-0.33,1.22-0.5,1.9-0.37c0.67,0.13,0.88,0.48,1.1,0.37
+		c0.59-0.3-0.9-2.92,0-4c0.9-1.08,3.7-0.1,4,0c2.51,0.87,2.61,2.27,5,3c0.61,0.19,2.34,0.72,4,0c1.3-0.56,1.48-1.43,3-3
+		c1.44-1.49,2.12-1.58,4-3c3.01-2.28,3.1-3.45,5-5c3.45-2.82,5.53-0.92,10-3c4.76-2.21,3.11-4.7,10-10c3.9-3,5.4-2.95,8-6
+		c1.09-1.28,2.02-2.69,4-4c1.44-0.95,2.46-0.93,5-2c1.76-0.74,3.13-1.49,4-2" />
+				</g>
+				<g id="Dialects">
+					<g id="WestKanto">
+						<path id="Kanto" class="st1" d="M802.5,479.5l12,9v2v1h-6l-7,7l-1,1l-1,1l-1,14l-3,2l-3,1h-2l-2,1l-9,10h-2l-2-2l2-1h1l-2-3l1-1
+			v-2l-1-2l2-3l-1-3l-2-1l2-3h2l1-2v-1h2l3-2l1-3l2-2l-6-5l-2,1l-2,1h-3l-1,1l1,3l-1,1v1l-2,2h-3l1,2l-1,1v5l1,1l2,1l1,1l-2,1l-1,2
+			l1,1h-2v-1v-2l-2-3l-1-1h-2h-2l-1-1h-3l-1,1h-2v1l-2,1h-1l-2,3v2h-1l-3-1l-1-1v-3v-4l-2-1h-5h-3l-3,1l-1-2l-2-1v-1v-2h1l1-1l3-1h1
+			l1-1l1-2h1l1-2v-2v-1l-1-2l-1-1l1-1l1-2v-2l-1-1l-2-1h-1v-2l-1-1l-2-1l-1-1v-2v-2c-1-1-2-2-2-2l1-1l1-2l-2-2l1-2h1v-3l-1-2h-3h-2
+			l-2-3v-2l-1-2v-1l1-2l2-2l1-1l2-2h2h2l2-2l7-3v-2l2-1v-2v-1v-1h3l1-3h2l1,2l1,1l2,1l2,1l2,1h1v1l-1,2l2,1l-1,1l-1,2v2l-1,2v1l1,2
+			h2h1l1,1l1,1l-1,2l-1,2v2v2l2,1l1,3v2l1,3l1,3l1,1l2,3l1,2l2,1l1,1h2h2h1h2l1,1l2,1l3,2l3,1h3l2-1l7-2L802.5,479.5z" />
+						<polygon id="Hokkaido" class="st1" points="826.5,34.5 829.5,35.5 831.5,35.5 834.5,32.5 834.5,30.5 838.5,32.5 843.5,38.5 
+			846.5,41.5 851.5,46.5 853.5,49.5 855.5,52.5 858.5,57.5 863.5,63.5 870.5,71.5 883.5,80.5 894.5,86.5 902.5,88.5 915.5,90.5 
+			915.5,93.5 916.5,94.5 919.5,96.5 923.5,97.5 934.5,97.5 938.5,93.5 951.5,79.5 951.5,82.5 951.5,87.5 949.5,89.5 947.5,95.5 
+			945.5,100.5 944.5,104.5 945.5,109.5 951.5,111.5 953.5,111.5 950.5,115.5 950.5,117.5 956.5,126.5 961.5,126.5 965.5,121.5 
+			968.5,121.5 965.5,124.5 963.5,126.5 962.5,130.5 958.5,131.5 951.5,133.5 948.5,139.5 944.5,142.5 940.5,140.5 937.5,138.5 
+			937.5,142.5 937.5,143.5 930.5,145.5 924.5,144.5 920.5,143.5 916.5,145.5 907.5,150.5 898.5,161.5 890.5,176.5 890.5,183.5 
+			889.5,195.5 878.5,186.5 867.5,182.5 861.5,180.5 852.5,174.5 843.5,168.5 838.5,166.5 833.5,165.5 829.5,166.5 825.5,167.5 
+			821.5,171.5 810.5,180.5 808.5,179.5 808.5,177.5 806.5,176.5 805.5,175.5 802.5,171.5 799.5,169.5 799.5,167.5 795.5,167.5 
+			792.5,167.5 790.5,169.5 787.5,175.5 785.5,179.5 785.5,184.5 787.5,186.5 792.5,190.5 795.5,191.5 802.5,190.5 804.5,193.5 
+			810.5,200.5 813.5,200.5 815.5,202.5 817.5,203.5 814.5,206.5 812.5,208.5 809.5,208.5 804.5,205.5 802.5,205.5 800.5,208.5 
+			799.5,205.5 798.5,208.5 795.5,208.5 793.5,208.5 791.5,212.5 791.5,214.5 791.5,218.5 788.5,218.5 785.5,220.5 783.5,224.5 
+			780.5,224.5 777.5,222.5 775.5,217.5 776.5,212.5 776.5,209.5 778.5,208.5 779.5,206.5 780.5,201.5 779.5,194.5 776.5,190.5 
+			775.5,189.5 772.5,188.5 772.5,186.5 770.5,185.5 768.5,185.5 768.5,181.5 770.5,177.5 770.5,174.5 768.5,171.5 768.5,167.5 
+			770.5,166.5 771.5,165.5 773.5,165.5 776.5,163.5 781.5,158.5 783.5,159.5 785.5,159.5 786.5,156.5 787.5,152.5 790.5,151.5 
+			791.5,148.5 791.5,145.5 786.5,139.5 785.5,134.5 787.5,133.5 789.5,132.5 792.5,131.5 797.5,136.5 801.5,138.5 802.5,139.5 
+			805.5,137.5 808.5,137.5 810.5,140.5 813.5,140.5 815.5,140.5 818.5,139.5 820.5,136.5 822.5,133.5 822.5,127.5 820.5,119.5 
+			819.5,114.5 819.5,112.5 819.5,111.5 820.5,109.5 823.5,109.5 825.5,108.5 827.5,106.5 828.5,104.5 829.5,101.5 829.5,95.5 
+			828.5,88.5 828.5,85.5 830.5,82.5 831.5,77.5 832.5,70.5 829.5,56.5 825.5,48.5 823.5,44.5 825.5,41.5 826.5,38.5 		" />
+					</g>
+					<g id="KansaiDialect">
+						<path class="st2" d="M608.5,496.5c-1,0-2,1-2,1l0,0l-1,1l1,1v1l1,1h-2l-1,1v-1v-2l-1-1l-2,1v-1v-2l-1,2l-2-1v1l-4,3v3h-1h-1h-3
+			l-1,1h-2h-2l-1,1h-2l-2,1l-1,1h-1h-1l-1,1l-2,1h-2h-1l-1,1v2v1l-3,4l-3,2v2l1,1v2v2l-1,1v1l3,4l2,1h1v-1l1-2v-1l1,2l0,0v1h11l3,2
+			l3,2l4,2l2,1l4-2h1l1-1l2-1h1h1l1,1h1l1,1v2l1,1v2h-1h-1l-1,3l-1,4l-4,2l-1,2h-2l-3,2v2l3,2l2,2l-3,1v1v2h-1l1,2l1,1l-1,1h-1l-1,1
+			v2h-1v1v1h1l4,3l2,2l5,3l-1,1l-1,1l1,1l3,5l3,1h2l3,2h3l1,2l1-1l3-2l4-2v-2v-1l-1-2l1-1l2-1l1-3l1-2l3-4h1l2-1l2-2v-2v-2l-1-1l2-1
+			v-3l2-2l3-1h2l6-2l2-2v-1h1v1l2,1h2l2-1l1,1h1v-1v-2h1v-4l-1,1l-1-1l-2-3l-4-2l-3-1l-4-2v-7l5-8v-3h2l2-1h1l-2-3l-3-3l-2-3l-3-2
+			h-2v1h-2l-1-1l2-6v-2l-3-7h-1l-1-1l-1-3l-3-1l-1-1l-3-2v1v1h-1v2l-2-1v-1v-1v-2l-1,1l-1,1v1h1v3h-2h-1h-3l1,1v1h-1l-1,1l1,2l-2-1
+			h-1l-1,2l-1,1l-2-1h-3h-2l-1-1v-1l-1-2" />
+						<path class="st2" d="M592.5,543.5l-1,1l-1,1l-3,3v4v2l1,2l-1,1h-1v1l-1-1l-3,2l-1,1h-1v-1l-1-2h-1h-1v-2l1-1l13-13L592.5,543.5z" />
+					</g>
+					<g id="Hiroshima">
+						<path class="st3" d="M510.5,514.5c0.32-0.12,0.51-0.11,5,1c0.94,0.23,1.08,0.27,4,1c1.79,0.45,4,1,4,1c0,0,1.85,3.22,3,7
+			c0.68,2.26,0.33,2.12,1,4c0.93,2.62,1.66,3.01,2,5c0.29,1.73-0.24,1.55,0,4c0.24,2.45,1,5,1,5s0.17,7.22-2,8c-2,0.72-6-4-6-4
+			c0,0-4.84-1.48-6,0c-0.7,0.9,0.58,2.06,0,3c-1.26,2.03-8.31-1.78-11,1c-0.76,0.79-0.59,1.5-2,3c-0.89,0.95-1.72,1.84-3,2
+			c-1.6,0.21-3.22-0.81-4-2c-1.02-1.56-1-4-1-4c0,0-4.64-3.28-7-2c-0.35,0.19-0.9,1.13-2,3c-1.26,2.16-1.35,2.57-2,3
+			c-1.1,0.71-2.83,0.82-4,0c-1.87-1.31-1.8-4.65-0.62-6.08c0.3-0.37,0.64-0.56,0.62-0.92c-0.07-0.86-2.16-0.66-3-2
+			c-0.9-1.43,0-4,0-4l4-7c0.32-3.56,2-5,2-5c1-0.86,2.25-0.95,3-1c2.2-0.15,2.82,0.93,5,1c1.49,0.05,2.58-0.41,4-1
+			c1.82-0.76,4.8-2.45,5.79-2.12c0.09,0.03,0.12,0.11,0.21,0.12c0.6,0.03,0.69-2.32,2-4c0.92-1.18,1.51-0.74,3-2
+			C509.17,517.23,508.65,515.16,510.5,514.5z" />
+					</g>
+				</g>
+			</svg>
+			<br>
+			<div id="infoContainer"></div>
+			<div id="infoContainerMobile">
+				<table id="presentTenseCopula">
+					<tr>
+						<th>Present Copula</th>
+					</tr>
+				</table>
+				<table id="pastTenseCopula">
+					<tr>
+						<th>Past Copula</th>
+					</tr>
+				</table>
+				<table id="negativeTenseCopula">
+					<tr>
+						<th>Negative Copula</th>
+					</tr>
+				</table>
+				<table id="negativePastTenseCopula">
+					<tr>
+						<th>Negative-Past Copula</th>
+					</tr>
+				</table>
+				<table id="teFormCopula">
+					<tr>
+						<th>Te-form</th>
+					</tr>
+				</table>
+			</div>
+			<table>
+
+			</table>
+		</main>
+		<footer></footer>
+	</div>
+</body></html>

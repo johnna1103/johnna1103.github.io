@@ -1,0 +1,113 @@
+{
+	"dictionary": [
+		
+		{
+			"jpn": {
+				"kanji": {
+					"kanjiCharacters": [
+					"猫"	
+				],
+					"kanjiKana": [
+				"ねこ"
+			]
+				},
+				
+				
+				"wholeKanji": "猫",
+				
+				"kana": "ねこ",
+				
+				"jpnEX": "その猫はかわいいですよ。"
+			},
+
+			"eng": {
+				"romaji":[
+					"neko"
+				],
+				"wholeRomaji": "neko",
+				"def": "cat",
+				"engEX": "That cat is cute."
+			},
+
+			"class": "noun",
+			"genki_include": "true"
+
+		},
+
+
+		{
+			"jpn": {
+				"kanji": {
+					"kanjiCharacters": [
+					"営",
+					"む"
+				],
+					"kanjiKana": [
+				"いとな",
+				" "
+			]
+				},
+
+				"wholeKanji": "営む",
+				"kana": "いとなむ",
+				"jpnEX": "彼はとどまってお父さんの商売をむことにした"
+			},
+
+			"eng": {
+				"romaji":[
+					"itona",
+					"mu"
+				],
+				"wholeRomaji": "itonamu",
+				"def": "to run (a business); to operate; to conduct",
+				"engEX": "He decided to stay and carry on his father's business."
+			},
+
+			"class": "verb",
+			"genki_include": "false"
+				},
+		
+
+		{
+			"jpn": {
+				"kanji": {
+					"kanjiCharacters": [
+					"図",
+					"書",
+					"館"	
+				],
+					"kanjiKana": [
+				"と",
+				"しょ",
+				"かん"
+			]
+				},
+				
+				
+				"wholeKanji": "図書館",
+				
+				"kana": "としょかん",
+				
+				"jpnEX": "今日は図書館に行くつおりです。"
+			},
+
+			"eng": {
+				"romaji":[
+					"to",
+					"sho",
+					"kan"
+				],
+				"wholeRomaji": "toshokan",
+				"def": "library",
+				"engEX": "Today I plan to go to the library."
+				
+			},
+
+			"class": "noun",
+			"genki_include": "true"
+
+		}
+
+
+]
+}
