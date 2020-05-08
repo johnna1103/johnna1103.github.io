@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Kanji Search</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+
+
+	<style>
+		body {
+			background-color: #FFFFFF;
+			font-family: 'Yanone Kaffeesatz', sans-serif;
+		}
+		
+
+		@media (min-width: 600px) {
+			#container {
+				display: grid;
+				grid-template-columns: 10% auto 10%;
+				grid-template-rows: auto 60 auto 50px;
+
+			}
+
+			footer{
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 4;
+				grid-row-end: 5;
+				background-color: #E69597;
+			}
+			
+			header {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 1;
+				grid-row-end: 2;
+				border-bottom: 45px solid #E69597;
+				border-radius: 10px;
+			}
+
+			header img {
+				width: 35%;
+				height: auto;
+				margin-left: 30%;
+
+			}
+
+
+			nav {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 2;
+				grid-row-end: 3;
+				display: block;
+			}
+
+			nav a {
+				text-align: center;
+				float: left;
+				text-decoration: none;
+				font-size: 20px;
+				color: black;
+				padding: 42px 20px;
+				font-family: 'Yanone Kaffeesatz', sans-serif;
+			}
+
+			nav a:hover {
+				color: #B9D4D4;
+			}
+
+			#icon {
+				display: none;
+			}
+		}
+
+		@media(max-width: 599px) {
+
+			#container {
+				display: grid;
+				grid-template-columns: 20% auto 10%;
+				grid-template-rows: auto 60px auto 50px;
+
+			}
+
+			header {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 1;
+				grid-row-end: 2;
+				border-bottom: 45px solid #E69597;
+				border-radius: 10px;
+			}
+
+			header img {
+				width: 35%;
+				height: auto;
+				margin-left: 30%;
+
+			}
+
+			main {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 3;
+				grid-row-end: 4;
+			}
+
+			#icon {
+				grid-column-start: 1;
+				grid-column-end: 2;
+				grid-row-start: 2;
+				grid-row-end: 3;
+				z-index: 2;
+			}
+
+			#icon img {
+				width: 30%;
+			}
+
+			#icon img:hover {
+				background-color: #B9D4D4;
+			}
+
+
+			nav {
+				display: none;
+				background: #3E6E6D;
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 2;
+				grid-row-end: 5;
+				z-index: 1;
+			}
+
+			nav a {
+				text-align: center;
+				width: 100%;
+				margin: 0;
+				float: left;
+				text-decoration: none;
+				font-size: 20px;
+				color: black;
+				padding: 42px 20px;
+				font-family: 'Yanone Kaffeesatz', sans-serif;
+
+			}
+
+			nav a: hover {
+				color: #B9D4D4;
+			}
+		}
+
+		canvas {
+			border: 1px solid black;
+			background-color: white;
+		}
+
+		#submit {
+			width: 55px;
+			text-align: center;
+			height: 25px;
+			background-color: lightblue;
+
+		}
+
+		#del {
+			width: 55px;
+			text-align: center;
+			height: 25px;
+			background-color: lightblue;
+
+		}
+
+		#drawnIMG {
+			display: none;
+		}
+
+	</style>
+
+	<script src="ocrad.js-master/ocrad.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script>
+		$(function() {
+			$("#icon").attr("aria-expanded", "false");
+			$("#icon").attr("tabindex", "0");
+			$("#icon").on("click keypress", function() {
+				if ($("#icon").attr("aria-expanded") === "false") {
+
+					$("nav").css("display", "block");
+					$("#icon").attr("aria-expanded", "true");
+				} else {
+					$("nav").css("display", "none");
+
+					$("#icon").attr("aria-expanded", "false");
+				}
+
+			});
+
+			$(window).resize(function() {
+
+				if ($(window).width() >= 600) {
+
+					$("nav").css("display", "block");
+					$("#icon").attr("aria-expanded", "false");
+				} else if ($(window).width() < 600) {
+					$("nav").css("display", "none");
+					$("#icon").attr("aria-expanded", "false");
+				}
+
+
+			});
+			var myCanvas = document.querySelector("#writingArea");
+			var surface = myCanvas.getContext("2d");
+			var numberOfStrokes = 0;
+
+			var loadKanjiCanvas = document.querySelector("#selectedKanji");
+			var loadKanjiSurface = loadKanjiCanvas.getContext("2d");
+
+			var currentX = 0;
+			var currentY = 0;
+			var previousX = 0;
+			var previousY = 0;
+			var isMouseDown = false;
+			var hasTouchStarted = false;
+			var randKanji = "";
+
+			myCanvas.addEventListener('mousedown', mouseDown, false);
+			myCanvas.addEventListener('mousemove', move, false);
+			window.addEventListener('mouseup', mouseUp, false);
+			
+			myCanvas.addEventListener('touchstart', touchStart, false);
+			myCanvas.addEventListener('touchmove', touchMove, false);
+			window.addEventListener('touchend', touchEnd, false);
+
+
+			$.getJSON("kanjiList.json", function(e) {
+				var randNum = Math.floor(Math.random() * e.kanjiDictionary.length);
+				randKanji = e.kanjiDictionary[randNum].kanji;
+
+				loadKanjiSurface.font = '200px Sawarabi Gothic';
+				
+				loadKanjiSurface.fillStyle = "#771D1A";
+
+				loadKanjiSurface.fillText(randKanji, 0, 180, 200);
+
+
+
+				$("#submit").on("click keypress", function() {
+					if (numberOfStrokes - 1 == e.kanjiDictionary[randNum].strokeNum) {
+						$("main").append("You used the correct amount of strokes.");
+					} else {
+						$("main").append("Remember, there are " + e.kanjiDictionary[randNum].strokeNum + " strokes in this character.");
+					}
+
+					var croppedDrawnImg = trim(myCanvas);
+
+					var croppedLoadImg = trim(loadKanjiCanvas);
+
+					var scaleX = croppedLoadImg.width / croppedDrawnImg.width;
+					var scaleY = croppedLoadImg.height / croppedDrawnImg.height;
+
+
+					var cropImgURL = croppedDrawnImg.toDataURL("image/png");
+
+					var img = new Image();
+
+
+					var resizedCanvas = document.createElement('canvas');
+					resizedCanvas.setAttribute("id", "resizedCanvas");
+
+
+					var resizedCTX = resizedCanvas.getContext('2d');
+
+
+					img.width = croppedDrawnImg.width * scaleX;
+					img.height = croppedDrawnImg.height * scaleY;
+					img.src = cropImgURL;
+
+					resizedCanvas.width = img.width;
+					resizedCanvas.height = img.height;
+
+					setTimeout(function() {
+						resizedCTX.drawImage(img, 0, 0, img.width, img.height);
+
+						console.log(match());
+
+
+					}, 1);
+
+
+
+
+
+
+
+
+
+					$("main").append(resizedCanvas);
+					$("main").append(croppedLoadImg);
+					$("main").append(img);
+
+
+					function trim(c) {
+						var ctx = c.getContext('2d'),
+							copy = document.createElement('canvas').getContext('2d'),
+							pixels = ctx.getImageData(0, 0, c.width, c.height),
+							l = pixels.data.length,
+							i,
+							bound = {
+								top: null,
+								left: null,
+								right: null,
+								bottom: null
+							},
+							x, y;
+
+						for (i = 0; i < l; i += 4) {
+							if (pixels.data[i + 3] !== 0) {
+								x = (i / 4) % c.width;
+								y = ~~((i / 4) / c.width);
+
+								if (bound.top === null) {
+									bound.top = y;
+								}
+
+								if (bound.left === null) {
+									bound.left = x;
+								} else if (x < bound.left) {
+									bound.left = x;
+								}
+
+								if (bound.right === null) {
+									bound.right = x;
+								} else if (bound.right < x) {
+									bound.right = x;
+								}
+
+								if (bound.bottom === null) {
+									bound.bottom = y;
+								} else if (bound.bottom < y) {
+									bound.bottom = y;
+								}
+							}
+						}
+
+						var trimHeight = bound.bottom - bound.top,
+							trimWidth = bound.right - bound.left,
+							trimmed = ctx.getImageData(bound.left, bound.top, trimWidth, trimHeight);
+
+						copy.canvas.width = trimWidth;
+						copy.canvas.height = trimHeight;
+						copy.putImageData(trimmed, 0, 0);
+
+						// open new window with trimmed image:
+
+						return copy.canvas;
+					}
+
+
+					function match() {
+						var correctPx = 0;
+						var totalPx = 0;
+						var dhex;
+						var lhex;
+						var pixelDataDrawn = resizedCTX.getImageData(0, 0, resizedCanvas.width, resizedCanvas.height);
+						var pixelDataLoaded = croppedLoadImg.getContext("2d").getImageData(0, 0, croppedLoadImg.width, croppedLoadImg.height);
+						console.log(pixelDataDrawn.data);
+						for (i = 0; i < pixelDataLoaded.data.length; i += 4) {
+							if (pixelDataDrawn.data[i] == pixelDataLoaded.data[i] && pixelDataDrawn.data[i+1] == pixelDataLoaded.data[i+1] && pixelDataDrawn.data[i+2] == pixelDataLoaded.data[i+2]) {
+								correctPx++;
+							}
+
+							totalPx++;
+						}
+
+
+						return ((correctPx / totalPx) * 100);
+
+					}
+
+					/*function rgbToHex(r, g, b) {
+						return ((r << 16) | (g << 8) | b).toString(16);
+					}*/
+
+
+
+				});
+			});
+
+
+
+			function mouseDown() {
+				isMouseDown = true;
+				draw();
+			}
+			
+			function touchStart() {
+				hasTouchStarted = true;
+				drawMobile();
+			}
+
+			function mouseUp() {
+				isMouseDown = false;
+				numberOfStrokes++;
+			}
+			
+			function touchEnd() {
+				hasTouchStarted = false;
+				numberOfStrokes++;
+			}
+
+			function draw() {
+				surface.beginPath();
+				surface.moveTo(previousX, previousY);
+				surface.lineTo(currentX, currentY);
+				surface.lineWidth = 10;
+				surface.strokeStyle = "#771D1A";
+
+				surface.closePath();
+				surface.stroke();
+			}
+			
+			function drawMobile() {
+				surface.beginPath();
+				surface.moveTo(previousX, previousY);
+				surface.lineTo(currentX, currentY);
+				surface.lineWidth = 10;
+				surface.strokeStyle = "#771D1A";
+
+				surface.closePath();
+				surface.stroke();
+			}
+
+			function move(event) {
+				reposition(event);
+				if (isMouseDown === true) {
+					draw();
+				}
+			}
+			
+			function touchMove(event) {
+				reposition(event);
+				if (hasTouchStarted === true) {
+					drawMobile();
+				}
+			}
+
+			function reposition(event) {
+				previousX = currentX;
+				previousY = currentY;
+				currentX = event.offsetX;
+				currentY = event.offsetY;
+			}
+
+
+
+			$("#del").on("click keypress", function() {
+				surface.clearRect(0, 0, myCanvas.width, myCanvas.height);
+				numberOfStrokes = 0;
+			});
+
+
+
+		});
+
+	</script>
+</head>
+
+<body>
+	<div id="container">
+		<header><img src="jpnLogo.png"></header>
+		<div id="icon"><img src="icon.png"></div>
+		<nav>
+			<a href="home.html">Home</a>
+			<a href="kanjiSearch.html">Kanji Practice</a>
+			<a class="active" href="dictionarySearch.html">Dictionary</a>
+			<a href="dialectmap.html">Dialect Map</a>
+		</nav>
+		<main>
+			<canvas id="selectedKanji" width="200" height="200"></canvas>
+			<canvas id="writingArea" width="300" height="300"></canvas>
+			<button id="submit">Submit</button>
+			<button id="del">Delete</button>
+			<img id="drawnIMG" src="">
+		</main>
+		<footer></footer>
+	</div>
+</body>
+
+</html>
