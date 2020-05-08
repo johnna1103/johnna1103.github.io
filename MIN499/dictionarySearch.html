@@ -7,22 +7,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
 
+
 	<style>
 		body {
 			background-color: #FFFFFF;
+			font-family: 'Yanone Kaffeesatz', sans-serif;
+			margin: 0;
 
 		}
-		
-		.active{
-			text-decoration-color: #771D1A;
+
+		#dictionaryLogo {
+			position: relative;
+			width: 40%;
+			height: auto;
+			left: 30%;
+			margin-bottom: -120px;
 		}
-
-
 
 		#searchForm {
 			position: relative;
 			z-index: 0;
-			
+
 		}
 
 		#search {
@@ -40,10 +45,11 @@
 		}
 
 		.conditions {
-			position: absolute;
+			position: relative;
 			margin-left: 60%;
-			margin-bottom: 10px;
-			width: 30%;
+			margin-bottom: 200px;
+			white-space: nowrap;
+			width: 20%;
 
 		}
 
@@ -56,8 +62,16 @@
 			#container {
 				display: grid;
 				grid-template-columns: 10% auto 10%;
-				grid-template-rows: auto 60 auto 50px;
+				grid-template-rows: auto 60px auto 60px;
 
+			}
+
+			footer {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 4;
+				grid-row-end: 5;
+				background-color: #E69597;
 			}
 
 			header {
@@ -112,7 +126,7 @@
 
 			.entries {
 				position: relative;
-				margin-top: 220px;
+				margin-bottom: 20px;
 				width: 70%;
 			}
 
@@ -135,7 +149,10 @@
 				grid-column-end: 3;
 				grid-row-start: 2;
 				grid-row-end: 3;
+				font-size: 25px;
 			}
+
+
 
 			.class {
 				position: relative;
@@ -225,9 +242,17 @@
 
 			#container {
 				display: grid;
-				grid-template-columns: 20% auto 10%;
-				grid-template-rows: auto 60px auto 50px;
+				grid-template-columns: 10% auto 10%;
+				grid-template-rows: auto 60px auto 60px;
 
+			}
+
+			footer {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 4;
+				grid-row-end: 5;
+				background-color: #E69597;
 			}
 
 			header {
@@ -299,48 +324,54 @@
 
 			.entries {
 				position: relative;
-				margin-top: 20px;
-				margin-top: 220px;
-
+				width: 70%;
+				margin-bottom: 20px;
+				text-align: center;
 			}
 
 			.entry {
+
 				position: relative;
 				padding: 5% 20px;
 				border-bottom: 4px solid #771D1A;
 				border-top: 4px solid #771D1A;
 				display: grid;
-				grid-template-columns: 80% auto;
-				grid-template-rows: auto auto auto auto auto;
-				text-align: center;
+				grid-template-columns: 100%;
+				grid-template-rows: 30px 90px 60px 30px auto auto auto auto;
 			}
+
+
 
 
 			.def {
 				position: relative;
 				grid-column-start: 1;
 				grid-column-end: 2;
-				grid-row-start: 2;
-				grid-row-end: 3;
+				grid-row-start: 5;
+				grid-row-end: 6;
+				font-size: 25px;
 			}
+
+
 
 			.class {
 				position: relative;
 				grid-column-start: 1;
 				grid-column-end: 2;
-				grid-row-start: 1;
-				grid-row-end: 2;
+				grid-row-start: 4;
+				grid-row-end: 5;
 			}
 
 			.genkiIn {
 				position: relative;
-				grid-column-start: 2;
-				grid-column-end: 3;
-				grid-row-start: 3;
-				grid-row-end: 4;
+				grid-column-start: 1;
+				grid-column-end: 2;
+				grid-row-start: 8;
+				grid-row-end: 9;
 			}
 
 			.kanjiContainer {
+
 				display: flex;
 				flex-wrap: nowrap;
 				position: relative;
@@ -351,7 +382,8 @@
 			}
 
 			.kanjiContainer h1 {
-
+				margin-left: 36%;
+				margin-top: 25px;
 				text-align: center;
 				font-size: 50px;
 				flex-basis: 25%;
@@ -368,8 +400,10 @@
 
 			.kanjiKanaContainer h2 {
 				text-align: center;
-				font-size: 13px;
+				font-size: 20px;
 				flex-basis: 25%;
+				margin: 0;
+				margin-left: 36%;
 			}
 
 			.romaji {
@@ -383,7 +417,8 @@
 			}
 
 			.romaji div {
-
+				margin-left: 36%;
+				margin-left: 36%;
 				text-align: center;
 				font-size: 20px;
 				flex-basis: 25%;
@@ -392,19 +427,20 @@
 			.exJPN {
 				position: relative;
 				grid-column-start: 1;
-				grid-column-end: 3;
-				grid-row-start: 4;
-				grid-row-end: 5;
+				grid-column-end: 2;
+				grid-row-start: 6;
+				grid-row-end: 7;
 			}
 
 			.exENG {
 				position: relative;
 				grid-column-start: 1;
-				grid-column-end: 3;
-				grid-row-start: 5;
-				grid-row-end: 6;
+				grid-column-end: 2;
+				grid-row-start: 7;
+				grid-row-end: 8;
 			}
 		}
+
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -479,19 +515,22 @@
 				$("#initialSearch").css("width", "30%");
 				$("#initialSearch").css("left", "70%");
 				$("#initialSearch").css("top", "10px");
+				$("#conditions").css("margin", "0");
 				$("#search").attr("placeholder", "Search...");
 
-				$(".entries").append("<section class = entry>");
+
 
 				$.getJSON("dictionary.json", function(e) {
 					if (isENG == true) {
 
 						for (i = 0; i < e.dictionary.length; i++) {
+
 							if (e.dictionary[i].eng.def.includes(word.toLowerCase())) {
+								$(".entries").append("<section class = 'entry'>");
 								if (hideKana == false) {
 									$(".entry:last").append("<div class = 'kanjiKanaContainer'>");
 									for (x = 0; x < e.dictionary[i].jpn.kanji.kanjiKana.length; x++) {
-										$(".kanjiKanaContainer").append("<h2>" + e.dictionary[i].jpn.kanji.kanjiKana[x]);
+										$(".kanjiKanaContainer:last").append("<h2>" + e.dictionary[i].jpn.kanji.kanjiKana[x]);
 									}
 
 								}
@@ -499,20 +538,20 @@
 								if (hideKanji == false) {
 									$(".entry:last").append("<div class = 'kanjiContainer'>");
 									for (x = 0; x < e.dictionary[i].jpn.kanji.kanjiCharacters.length; x++) {
-										$(".kanjiContainer").append("<h1>" + e.dictionary[i].jpn.kanji.kanjiCharacters[x]);
+										$(".kanjiContainer:last").append("<h1>" + e.dictionary[i].jpn.kanji.kanjiCharacters[x]);
 									}
 								}
 
 								if (hideRomaji == false) {
 									$(".entry:last").append("<div class = 'romaji'>");
 									for (x = 0; x < e.dictionary[i].eng.romaji.length; x++) {
-										$(".romaji").append("<div>" + e.dictionary[i].eng.romaji[x]);
+										$(".romaji:last").append("<div>" + e.dictionary[i].eng.romaji[x]);
 									}
 								}
 
-								$(".entry:last").append("<h4 class = 'class'>" + e.dictionary[i].class + "</h4><h2 class = 'def'>" + e.dictionary[i].eng.def);
+								$(".entry:last").append("<h4 class = 'class'>" + e.dictionary[i].class + "</h4><p class = 'def'>" + e.dictionary[i].eng.def);
 
-								if (e.dictionary[i].genki_include == true) {
+								if (e.dictionary[i].genki_include == "true") {
 									genkiyn = "Yes";
 								} else {
 									genkiyn = "No";
@@ -520,19 +559,22 @@
 
 								$(".entry:last").append("</h4><h4 class = 'genkiIn'>Genki Included: " + genkiyn);
 
-								$(".entry:last").append("<p class = exJPN>" + e.dictionary[i].jpn.jpnEX);
+
+								$(".entry:last").append("<p class = exJPN>Example: <br><br>" + e.dictionary[i].jpn.jpnEX);
 
 								$(".entry:last").append("<p class = exENG>" + e.dictionary[i].eng.engEX);
 							}
 						}
 
 
+
 						for (i = 0; i < e.dictionary.length; i++) {
-							if (e.dictionary[i].eng.romaji.includes(word.toLowerCase())) {
+							if (e.dictionary[i].eng.wholeRomaji.includes(word.toLowerCase())) {
+								$(".entries").append("<section class = 'entry'>");
 								if (hideKana == false) {
 									$(".entry:last").append("<div class = 'kanjiKanaContainer'>");
 									for (x = 0; x < e.dictionary[i].jpn.kanji.kanjiKana.length; x++) {
-										$(".kanjiKanaContainer").append("<h2>" + e.dictionary[i].jpn.kanji.kanjiKana[x]);
+										$(".kanjiKanaContainer:last").append("<h2>" + e.dictionary[i].jpn.kanji.kanjiKana[x]);
 
 									}
 
@@ -541,20 +583,20 @@
 								if (hideKanji == false) {
 									$(".entry:last").append("<div class = 'kanjiContainer'>");
 									for (x = 0; x < e.dictionary[i].jpn.kanji.kanjiCharacters.length; x++) {
-										$(".kanjiContainer").append("<h1>" + e.dictionary[i].jpn.kanji.kanjiCharacters[x]);
+										$(".kanjiContainer:last").append("<h1>" + e.dictionary[i].jpn.kanji.kanjiCharacters[x]);
 									}
 								}
 
 								if (hideRomaji == false) {
 									$(".entry:last").append("<div class = 'romaji'>");
 									for (x = 0; x < e.dictionary[i].eng.romaji.length; x++) {
-										$(".romaji").append("<div>" + e.dictionary[i].eng.romaji[x]);
+										$(".romaji:last").append("<div>" + e.dictionary[i].eng.romaji[x]);
 									}
 								}
 
 								$(".entry:last").append("<h4 class = 'class'>" + e.dictionary[i].class + "</h4><h2 class = 'def'>" + e.dictionary[i].eng.def);
 
-								if (e.dictionary[i].genki_include == true) {
+								if (e.dictionary[i].genki_include == "true") {
 									genkiyn = "Yes";
 								} else {
 									genkiyn = "No";
@@ -562,7 +604,7 @@
 
 								$(".entry:last").append("</h4><h4 class = 'genkiIn'>Genki Included: " + genkiyn);
 
-								$(".entry:last").append("<p class = exJPN>" + e.dictionary[i].jpn.jpnEX);
+								$(".entry:last").append("<p class = exJPN>Example: <br><br>" + e.dictionary[i].jpn.jpnEX);
 
 								$(".entry:last").append("<p class = exENG>" + e.dictionary[i].eng.engEX);
 							}
@@ -590,10 +632,11 @@
 							for (i = 0; i < e.dictionary.length; i++) {
 
 								if (e.dictionary[i].jpn.wholeKanji.includes(word)) {
+									$(".entries").append("<section class = 'entry'>");
 									if (hideKana == false) {
 										$(".entry:last").append("<div class = 'kanjiKanaContainer'>");
 										for (x = 0; x < e.dictionary[i].jpn.kanji.kanjiKana.length; x++) {
-											$(".kanjiKanaContainer").append("<h2>" + e.dictionary[i].jpn.kanji.kanjiKana[x]);
+											$(".kanjiKanaContainer:last").append("<h2>" + e.dictionary[i].jpn.kanji.kanjiKana[x]);
 
 										}
 
@@ -602,20 +645,20 @@
 									if (hideKanji == false) {
 										$(".entry:last").append("<div class = 'kanjiContainer'>");
 										for (x = 0; x < e.dictionary[i].jpn.kanji.kanjiCharacters.length; x++) {
-											$(".kanjiContainer").append("<h1>" + e.dictionary[i].jpn.kanji.kanjiCharacters[x]);
+											$(".kanjiContainer:last").append("<h1>" + e.dictionary[i].jpn.kanji.kanjiCharacters[x]);
 										}
 									}
 
 									if (hideRomaji == false) {
 										$(".entry:last").append("<div class = 'romaji'>");
 										for (x = 0; x < e.dictionary[i].eng.romaji.length; x++) {
-											$(".romaji").append("<div>" + e.dictionary[i].eng.romaji[x]);
+											$(".romaji:last").append("<div>" + e.dictionary[i].eng.romaji[x]);
 										}
 									}
 
-									$(".entry:last").append("<h4 class = 'class'>" + e.dictionary[i].class + "</h4><h2 class = 'def'>" + e.dictionary[i].eng.def);
+									$(".entry:last").append("<h4 class = 'class'>" + e.dictionary[i].class + "</h4><p class = 'def'>" + e.dictionary[i].eng.def);
 
-									if (e.dictionary[i].genki_include == true) {
+									if (e.dictionary[i].genki_include == "true") {
 										genkiyn = "Yes";
 									} else {
 										genkiyn = "No";
@@ -623,7 +666,7 @@
 
 									$(".entry:last").append("</h4><h4 class = 'genkiIn'>Genki Included: " + genkiyn);
 
-									$(".entry:last").append("<p class = exJPN>" + e.dictionary[i].jpn.jpnEX);
+									$(".entry:last").append("<p class = exJPN>Example: <br><br>" + e.dictionary[i].jpn.jpnEX);
 
 									$(".entry:last").append("<p class = exENG>" + e.dictionary[i].eng.engEX);
 								}
@@ -648,12 +691,12 @@
 						} else {
 							for (i = 0; i < e.dictionary.length; i++) {
 								if (e.dictionary[i].jpn.kana.includes(word)) {
-
+									$(".entries").append("<section class = 'entry'>");
 
 									if (hideKana == false) {
 										$(".entry:last").append("<div class = 'kanjiKanaContainer'>");
 										for (x = 0; x < e.dictionary[i].jpn.kanji.kanjiKana.length; x++) {
-											$(".kanjiKanaContainer").append("<h2>" + e.dictionary[i].jpn.kanji.kanjiKana[x]);
+											$(".kanjiKanaContainer:last").append("<h2>" + e.dictionary[i].jpn.kanji.kanjiKana[x]);
 
 										}
 
@@ -662,20 +705,20 @@
 									if (hideKanji == false) {
 										$(".entry:last").append("<div class = 'kanjiContainer'>");
 										for (x = 0; x < e.dictionary[i].jpn.kanji.kanjiCharacters.length; x++) {
-											$(".kanjiContainer").append("<div>" + e.dictionary[i].jpn.kanji.kanjiCharacters[x]);
+											$(".kanjiContainer:last").append("<div>" + e.dictionary[i].jpn.kanji.kanjiCharacters[x]);
 										}
 									}
 
 									if (hideRomaji == false) {
 										$(".entry:last").append("<div class = 'romaji'>");
 										for (x = 0; x < e.dictionary[i].eng.romaji.length; x++) {
-											$(".romaji").append("<div>" + e.dictionary[i].eng.romaji[x]);
+											$(".romaji:last").append("<div>" + e.dictionary[i].eng.romaji[x]);
 										}
 									}
 
-									$(".entry:last").append("<h4 class = 'class'>" + e.dictionary[i].class + "</h4><h2 class = 'def'>" + e.dictionary[i].eng.def);
+									$(".entry:last").append("<h4 class = 'class'>" + e.dictionary[i].class + "</h4><p class = 'def'>" + e.dictionary[i].eng.def);
 
-									if (e.dictionary[i].genki_include == true) {
+									if (e.dictionary[i].genki_include == "true") {
 										genkiyn = "Yes";
 									} else {
 										genkiyn = "No";
@@ -683,7 +726,7 @@
 
 									$(".entry:last").append("</h4><h4 class = 'genkiIn'>Genki Included: " + genkiyn);
 
-									$(".entry:last").append("<p class = exJPN>" + e.dictionary[i].jpn.jpnEX);
+									$(".entry:last").append("<p class = exJPN>Example: <br><br>" + e.dictionary[i].jpn.jpnEX);
 
 									$(".entry:last").append("<p class = exENG>" + e.dictionary[i].eng.engEX);
 
@@ -704,6 +747,7 @@
 				});
 			});
 		});
+
 	</script>
 
 </head>
@@ -720,6 +764,39 @@
 		</nav>
 
 		<main>
+			<?xml version="1.0" encoding="utf-8"?>
+			<!-- Generator: Adobe Illustrator 24.1.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+			<svg id = "dictionaryLogo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 425.48 219.08" style="enable-background:new 0 0 425.48 219.08;" xml:space="preserve">
+				<style type="text/css">
+					.st0 {
+						fill: none;
+					}
+
+					.st1 {
+						fill: #3E6E6D;
+					}
+
+					.st2 {
+						font-family: 'NotoSerifJP-Regular-90ms-RKSJ-H';
+					}
+
+					.st3 {
+						font-size: 72px;
+					}
+
+					.st4 {
+						font-family: 'IM_FELL_DW_Pica_SC';
+					}
+
+				</style>
+				<rect y="29.26" class="st0" width="425.48" height="213.82" />
+				<text transform="matrix(1 0 0 1 140.7399 87.3604)">
+					<tspan x="0" y="0" class="st1 st2 st3">辞書</tspan>
+					<tspan x="-93.81" y="86.4" class="st1 st4 st3">Dictionary</tspan>
+				</text>
+			</svg>
+
+
 			<div id="initialSearch">
 				<form id="searchForm">
 					<input id="search" type="text" placeholder="Start Search Here...">
@@ -740,4 +817,6 @@
 		</main>
 		<footer></footer>
 	</div>
-</body></html>
+</body>
+
+</html>

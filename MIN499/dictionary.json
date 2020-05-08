@@ -1,27 +1,27 @@
 {
 	"dictionary": [
-		
+
 		{
 			"jpn": {
 				"kanji": {
 					"kanjiCharacters": [
-					"猫"	
+					"猫"
 				],
 					"kanjiKana": [
 				"ねこ"
 			]
 				},
-				
-				
+
+
 				"wholeKanji": "猫",
-				
+
 				"kana": "ねこ",
-				
+
 				"jpnEX": "その猫はかわいいですよ。"
 			},
 
 			"eng": {
-				"romaji":[
+				"romaji": [
 					"neko"
 				],
 				"wholeRomaji": "neko",
@@ -54,7 +54,7 @@
 			},
 
 			"eng": {
-				"romaji":[
+				"romaji": [
 					"itona",
 					"mu"
 				],
@@ -66,7 +66,7 @@
 			"class": "verb",
 			"genki_include": "false"
 				},
-		
+
 
 		{
 			"jpn": {
@@ -74,7 +74,7 @@
 					"kanjiCharacters": [
 					"図",
 					"書",
-					"館"	
+					"館"
 				],
 					"kanjiKana": [
 				"と",
@@ -82,17 +82,17 @@
 				"かん"
 			]
 				},
-				
-				
+
+
 				"wholeKanji": "図書館",
-				
+
 				"kana": "としょかん",
-				
+
 				"jpnEX": "今日は図書館に行くつおりです。"
 			},
 
 			"eng": {
-				"romaji":[
+				"romaji": [
 					"to",
 					"sho",
 					"kan"
@@ -100,14 +100,51 @@
 				"wholeRomaji": "toshokan",
 				"def": "library",
 				"engEX": "Today I plan to go to the library."
-				
+
 			},
 
 			"class": "noun",
 			"genki_include": "true"
 
-		}
+		},
 
+		{
+			"jpn": {
+				"kanji": {
+					"kanjiCharacters": [
+					"走",
+					"る"
+					
+				],
+					"kanjiKana": [
+				"はし",
+				" "
+			]
+				},
+
+
+				"wholeKanji": "走る",
+
+				"kana": "はしる",
+
+				"jpnEX": "あの電車は東京と名古屋の間を走ります。"
+			},
+
+			"eng": {
+				"romaji": [
+					"hashi",
+					"ru"
+				],
+				"wholeRomaji": "hashiru",
+				"def": "to run; to drive; to travel; to flow (energy)",
+				"engEX": "That train runs between Tokyo and Nagoya."
+
+			},
+
+			"class": "verb",
+			"genki_include": "true"
+
+		}
 
 ]
 }

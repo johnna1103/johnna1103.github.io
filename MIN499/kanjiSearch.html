@@ -12,16 +12,26 @@
 	<style>
 		body {
 			background-color: #FFFFFF;
-
+			font-family: 'Yanone Kaffeesatz', sans-serif;
+			margin: 0;
 		}
-		
+
+
 
 		@media (min-width: 600px) {
 			#container {
 				display: grid;
 				grid-template-columns: 10% auto 10%;
-				grid-template-rows: auto 60 auto 50px;
+				grid-template-rows: auto 60 auto 60px;
 
+			}
+
+			footer {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 4;
+				grid-row-end: 5;
+				background-color: #E69597;
 			}
 
 			header {
@@ -73,7 +83,7 @@
 			#container {
 				display: grid;
 				grid-template-columns: 20% auto 10%;
-				grid-template-rows: auto 60px auto 50px;
+				grid-template-rows: auto 60px auto 60px;
 
 			}
 
@@ -217,6 +227,7 @@
 			var previousX = 0;
 			var previousY = 0;
 			var isMouseDown = false;
+			var hasTouchStarted = false;
 			var randKanji = "";
 
 			myCanvas.addEventListener('mousedown', mouseDown, false);
@@ -229,7 +240,7 @@
 				randKanji = e.kanjiDictionary[randNum].kanji;
 
 				loadKanjiSurface.font = '200px Sawarabi Gothic';
-				
+
 				loadKanjiSurface.fillStyle = "#771D1A";
 
 				loadKanjiSurface.fillText(randKanji, 0, 180, 200);
@@ -357,7 +368,7 @@
 						var pixelDataLoaded = croppedLoadImg.getContext("2d").getImageData(0, 0, croppedLoadImg.width, croppedLoadImg.height);
 						console.log(pixelDataDrawn.data);
 						for (i = 0; i < pixelDataLoaded.data.length; i += 4) {
-							if (pixelDataDrawn.data[i] == pixelDataLoaded.data[i] && pixelDataDrawn.data[i+1] == pixelDataLoaded.data[i+1] && pixelDataDrawn.data[i+2] == pixelDataLoaded.data[i+2]) {
+							if (pixelDataDrawn.data[i] == pixelDataLoaded.data[i] && pixelDataDrawn.data[i + 1] == pixelDataLoaded.data[i + 1] && pixelDataDrawn.data[i + 2] == pixelDataLoaded.data[i + 2]) {
 								correctPx++;
 							}
 
@@ -380,15 +391,71 @@
 
 
 
+			myCanvas.addEventListener("touchstart", function(e) {
+				mousePos = getTouchPos(myCanvas, e);
+				var touch = e.touches[0];
+				var mouseEvent = new MouseEvent("mousedown", {
+					clientX: touch.clientX,
+					clientY: touch.clientY
+				});
+				myCanvas.dispatchEvent(mouseEvent);
+			}, false);
+			myCanvas.addEventListener("touchend", function(e) {
+				var mouseEvent = new MouseEvent("mouseup", {});
+				myCanvas.dispatchEvent(mouseEvent);
+			}, false);
+			myCanvas.addEventListener("touchmove", function(e) {
+				var touch = e.touches[0];
+				var mouseEvent = new MouseEvent("mousemove", {
+					clientX: touch.clientX,
+					clientY: touch.clientY
+				});
+				myCanvas.dispatchEvent(mouseEvent);
+			}, false);
+
+			// Get the position of a touch relative to the canvas
+			function getTouchPos(canvasDom, touchEvent) {
+				var rect = canvasDom.getBoundingClientRect();
+				return {
+					x: touchEvent.touches[0].clientX - rect.left,
+					y: touchEvent.touches[0].clientY - rect.top
+				};
+			}
+
+			// Prevent scrolling when touching the canvas
+			document.body.addEventListener("touchstart", function(e) {
+				if (e.target == canvas) {
+					e.preventDefault();
+				}
+			}, false);
+			document.body.addEventListener("touchend", function(e) {
+				if (e.target == canvas) {
+					e.preventDefault();
+				}
+			}, false);
+			document.body.addEventListener("touchmove", function(e) {
+				if (e.target == canvas) {
+					e.preventDefault();
+				}
+			}, false);
+
+
+
+
+
 			function mouseDown() {
 				isMouseDown = true;
 				draw();
 			}
 
+
+
 			function mouseUp() {
 				isMouseDown = false;
 				numberOfStrokes++;
 			}
+
+
 
 			function draw() {
 				surface.beginPath();
@@ -401,12 +468,16 @@
 				surface.stroke();
 			}
 
+
+
 			function move(event) {
 				reposition(event);
 				if (isMouseDown === true) {
 					draw();
 				}
 			}
+
+
 
 			function reposition(event) {
 				previousX = currentX;
@@ -440,6 +511,10 @@
 			<a href="dialectmap.html">Dialect Map</a>
 		</nav>
 		<main>
+			<?xml version="1.0" encoding="utf-8"?>
+			<!-- Generator: Adobe Illustrator 24.1.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+			
+
 			<canvas id="selectedKanji" width="200" height="200"></canvas>
 			<canvas id="writingArea" width="300" height="300"></canvas>
 			<button id="submit">Submit</button>

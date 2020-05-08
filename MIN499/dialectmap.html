@@ -7,21 +7,37 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
 
-	<style>
 
-		.active{
-			text-decoration-color: #771D1A;
+
+	<style>
+		body {
+			margin: 0;
+			font-family: 'Yanone Kaffeesatz', sans-serif;
 		}
+		
+		#dialectMapLogo{
+			width: 40%;
+			margin-left: 30%;
+		}
+
 		@media(min-width: 600px) {
 
 			#container {
 				display: grid;
 				grid-template-columns: 10% auto 10%;
-				grid-template-rows: auto 60px auto 50px;
+				grid-template-rows: auto 60px auto 60px;
 
 			}
 
-			
+			footer {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 4;
+				grid-row-end: 5;
+				background-color: #E69597;
+			}
+
+
 			header {
 				grid-column-start: 1;
 				grid-column-end: 4;
@@ -111,8 +127,17 @@
 			#container {
 				display: grid;
 				grid-template-columns: 20% auto 10%;
-				grid-template-rows: auto 60px auto 50px;
+				grid-template-rows: auto 60px auto 60px;
 
+			}
+
+			footer {
+				grid-column-start: 1;
+				grid-column-end: 4;
+				grid-row-start: 4;
+				grid-row-end: 5;
+				background-color: #E69597;
+				margin: 0
 			}
 
 			header {
@@ -165,7 +190,7 @@
 				z-index: 0;
 			}
 
-			nav a{
+			nav a {
 				text-align: center;
 				width: 100%;
 				margin: 0;
@@ -221,6 +246,7 @@
 				left: 22.5%;
 			}
 		}
+
 	</style>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -270,153 +296,154 @@
 			$("#Hiroshima").attr("tabindex", "0");
 
 
-			
 
-				if ($(window).width() >= 600) {
-					
-					
 
-					$("#KansaiDialect").hover(function() {
-						$(".st2").css({
-							"stroke": "#E69597",
-							"stroke-width": "3px"
-						});
-					}, function() {
-						$(".st2").css("stroke", "none");
+			if ($(window).width() >= 600) {
+
+
+
+				$("#KansaiDialect").hover(function() {
+					$(".st2").css({
+						"stroke": "#E69597",
+						"stroke-width": "3px"
 					});
+				}, function() {
+					$(".st2").css("stroke", "none");
+				});
 
-					$("#WestKanto").hover(function() {
-						$(".st1").css({
-							"stroke": "#E69597",
-							"stroke-width": "3px"
-						});
-					}, function() {
-						$(".st1").css("stroke", "none");
+				$("#WestKanto").hover(function() {
+					$(".st1").css({
+						"stroke": "#E69597",
+						"stroke-width": "3px"
 					});
+				}, function() {
+					$(".st1").css("stroke", "none");
+				});
 
-					$("#Hiroshima").hover(function() {
-						$(".st3").css({
-							"stroke": "#E69597",
-							"stroke-width": "3px"
-						});
-					}, function() {
-						$(".st3").css("stroke", "none");
+				$("#Hiroshima").hover(function() {
+					$(".st3").css({
+						"stroke": "#E69597",
+						"stroke-width": "3px"
 					});
+				}, function() {
+					$(".st3").css("stroke", "none");
+				});
 
-					$("#KansaiDialect").on("click keypress", function() {
-						if ($("#KansaiDialect").attr("aria-checked") === "false") {
-							$("#infoContainer").append("<div class='infoBox' id='kansaiBox'><h4>Kansai-ben</h4><div id='kansaiInfo'><table><tr><th>Copula</th></tr><tr><td>や[ya]</td></tr><tr><td>やった[yatta]</td></tr><tr><td>やない[yanai]</td></tr><tr><td>やなかった[yanakatta]</td></tr><tr><td>やって[yatte]</td></tr></table></div></div>");
-							$("#KansaiDialect").attr("aria-checked", "true");
-						} else {
-							$("#kansaiBox").remove();
-							$("#KansaiDialect").attr("aria-checked", "false");
+				$("#KansaiDialect").on("click keypress", function() {
+					if ($("#KansaiDialect").attr("aria-checked") === "false") {
+						$("#infoContainer").append("<div class='infoBox' id='kansaiBox'><h4>Kansai-ben</h4><div id='kansaiInfo'><table><tr><th>Copula</th></tr><tr><td>や[ya]</td></tr><tr><td>やった[yatta]</td></tr><tr><td>やない[yanai]</td></tr><tr><td>やなかった[yanakatta]</td></tr><tr><td>やって[yatte]</td></tr></table></div></div>");
+						$("#KansaiDialect").attr("aria-checked", "true");
+					} else {
+						$("#kansaiBox").remove();
+						$("#KansaiDialect").attr("aria-checked", "false");
+					}
+
+				});
+
+				$("#WestKanto").on("click keypress", function() {
+					if ($("#WestKanto").attr("aria-checked") === "false") {
+						$("#infoContainer").append("<div class='infoBox' id='westKantoBox'><h4>Western Kanto-Ben(Standard)</h4><div id='westKantoInfo'><table><tr><th>Copula</th></tr><tr><td>だ[da]</td></tr><tr><td>だった[datta]</td></tr><tr><td>ない[nai]</td></tr><tr><td>なかった[nakatta]</td></tr><tr><td>で[de]</td></tr></table></div></div>");
+						$("#WestKanto").attr("aria-checked", "true");
+					} else {
+						$("#westKantoBox").remove();
+						$("#WestKanto").attr("aria-checked", "false");
+					}
+				});
+
+				$("#Hiroshima").on("click keypress", function() {
+					if ($("#Hiroshima").attr("aria-checked") === "false") {
+						$("#infoContainer").append("<div class='infoBox' id='hiroshimaBox'><h4>Hiroshima-ben</h4><div id='hiroshimaInfo'><table><tr><th>Copula</th></tr><tr><td>じゃ[ja]</td></tr><tr><td>じゃった[jatta]</td></tr><tr><td>じゃない[janai]</td></tr><tr><td>じゃなかった[janakatta]</td></tr><tr><td>じゃって[jatte]</td></tr></table></div></div>");
+						$("#Hiroshima").attr("aria-checked", "true");
+					} else {
+						$("#hiroshimaBox").remove();
+						$("#Hiroshima").attr("aria-checked", "false");
+					}
+
+				});
+			} else if ($(window).width() < 600) {
+				$("nav").css("display", "none");
+				$("#icon").attr("aria-expanded", "false");
+				$("#KansaiDialect").on("click keypress", function() {
+
+					if ($("#KansaiDialect").attr("aria-checked") === "false") {
+
+						if (rowCount == 5) {
+							$("th").css("display", "block");
 						}
 
-					});
+						$('#presentTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>や[ya]</td></tr>");
+						$('#negativeTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やない[yanai]</td></tr>");
+						$('#pastTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やった[yatta]</td></tr>");
+						$('#negativePastTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やなかった[yanakatta]</td></tr>");
+						$('#teFormCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やって[yatte]</td></tr>");
 
-					$("#WestKanto").on("click keypress", function() {
-						if ($("#WestKanto").attr("aria-checked") === "false") {
-							$("#infoContainer").append("<div class='infoBox' id='westKantoBox'><h4>Western Kanto-Ben(Standard)</h4><div id='westKantoInfo'><table><tr><th>Copula</th></tr><tr><td>だ[da]</td></tr><tr><td>だった[datta]</td></tr><tr><td>ない[nai]</td></tr><tr><td>なかった[nakatta]</td></tr><tr><td>で[de]</td></tr></table></div></div>");
-							$("#WestKanto").attr("aria-checked", "true");
-						} else {
-							$("#westKantoBox").remove();
-							$("#WestKanto").attr("aria-checked", "false");
+						$("#KansaiDialect").attr("aria-checked", "true");
+					} else {
+						$(".kansaiRow").remove();
+
+						rowCount = $('table tr').length;
+
+						if (rowCount == 5) {
+							$("th").css("display", "none");
 						}
-					});
+						$("#KansaiDialect").attr("aria-checked", "false");
+					}
+				});
 
-					$("#Hiroshima").on("click keypress", function() {
-						if ($("#Hiroshima").attr("aria-checked") === "false") {
-							$("#infoContainer").append("<div class='infoBox' id='hiroshimaBox'><h4>Hiroshima-ben</h4><div id='hiroshimaInfo'><table><tr><th>Copula</th></tr><tr><td>じゃ[ja]</td></tr><tr><td>じゃった[jatta]</td></tr><tr><td>じゃない[janai]</td></tr><tr><td>じゃなかった[janakatta]</td></tr><tr><td>じゃって[jatte]</td></tr></table></div></div>");
-							$("#Hiroshima").attr("aria-checked", "true");
-						} else {
-							$("#hiroshimaBox").remove();
-							$("#Hiroshima").attr("aria-checked", "false");
+				$("#WestKanto").on("click keypress", function() {
+					if ($("#WestKanto").attr("aria-checked") === "false") {
+
+						if (rowCount == 5) {
+							$("th").css("display", "block");
 						}
+						$('#presentTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>だ[da]</td></tr>");
+						$('#negativeTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>ない[nai]</td></tr>");
+						$('#pastTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>だった[datta]</td></tr>");
+						$('#negativePastTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>なかった[nakatta]</td></tr>");
+						$('#teFormCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>で[de]</td></tr>");
 
-					});
-				} else if ($(window).width() < 600) {
-					$("nav").css("display","none");
-					$("#icon").attr("aria-expanded", "false");
-					$("#KansaiDialect").on("click keypress", function() {
+						$("#WestKanto").attr("aria-checked", "true");
+					} else {
+						$(".westKantoRow").remove();
 
-						if ($("#KansaiDialect").attr("aria-checked") === "false") {
+						rowCount = $('table tr').length;
 
-							if (rowCount == 5) {
-								$("th").css("display", "block");
-							}
-
-							$('#presentTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>や[ya]</td></tr>");
-							$('#negativeTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やない[yanai]</td></tr>");
-							$('#pastTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やった[yatta]</td></tr>");
-							$('#negativePastTenseCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やなかった[yanakatta]</td></tr>");
-							$('#teFormCopula').append("<tr class = 'kansaiRow'><td>Kansai</td><td>やって[yatte]</td></tr>");
-
-							$("#KansaiDialect").attr("aria-checked", "true");
-						} else {
-							$(".kansaiRow").remove();
-
-							rowCount = $('table tr').length;
-
-							if (rowCount == 5) {
-								$("th").css("display", "none");
-							}
-							$("#KansaiDialect").attr("aria-checked", "false");
+						if (rowCount == 5) {
+							$("th").css("display", "none");
 						}
-					});
+						$("#WestKanto").attr("aria-checked", "false");
+					}
+				});
 
-					$("#WestKanto").on("click keypress", function() {
-						if ($("#WestKanto").attr("aria-checked") === "false") {
-
-							if (rowCount == 5) {
-								$("th").css("display", "block");
-							}
-							$('#presentTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>だ[da]</td></tr>");
-							$('#negativeTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>ない[nai]</td></tr>");
-							$('#pastTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>だった[datta]</td></tr>");
-							$('#negativePastTenseCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>なかった[nakatta]</td></tr>");
-							$('#teFormCopula').append("<tr class = 'westKantoRow'><td>West Kanto (standard)</td><td>で[de]</td></tr>");
-
-							$("#WestKanto").attr("aria-checked", "true");
-						} else {
-							$(".westKantoRow").remove();
-
-							rowCount = $('table tr').length;
-
-							if (rowCount == 5) {
-								$("th").css("display", "none");
-							}
-							$("#WestKanto").attr("aria-checked", "false");
+				$("#Hiroshima").on("click keypress", function() {
+					if ($("#Hiroshima").attr("aria-checked") === "false") {
+						if (rowCount == 5) {
+							$("th").css("display", "block");
 						}
-					});
-
-					$("#Hiroshima").on("click keypress", function() {
-						if ($("#Hiroshima").attr("aria-checked") === "false") {
-							if (rowCount == 5) {
-								$("th").css("display", "block");
-							}
-							$('#presentTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃ[ja]</td></tr>");
-							$('#negativeTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃない[janai]</td></tr>");
-							$('#pastTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃった[jatta]</td></tr>");
-							$('#negativePastTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃなかった[janakatta]</td></tr>");
-							$('#teFormCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃって[jatte]</td></tr>");
+						$('#presentTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃ[ja]</td></tr>");
+						$('#negativeTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃない[janai]</td></tr>");
+						$('#pastTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃった[jatta]</td></tr>");
+						$('#negativePastTenseCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃなかった[janakatta]</td></tr>");
+						$('#teFormCopula').append("<tr class = 'hiroshimaRow'><td>Hiroshima</td><td>じゃって[jatte]</td></tr>");
 
 
-							$("#Hiroshima").attr("aria-checked", "true");
-						} else {
-							$(".hiroshimaRow").remove();
+						$("#Hiroshima").attr("aria-checked", "true");
+					} else {
+						$(".hiroshimaRow").remove();
 
-							rowCount = $('table tr').length;
+						rowCount = $('table tr').length;
 
-							if (rowCount == 5) {
-								$("th").css("display", "none");
-							}
-							$("#Hiroshima").attr("aria-checked", "false");
+						if (rowCount == 5) {
+							$("th").css("display", "none");
 						}
-					});
-				}
-			
+						$("#Hiroshima").attr("aria-checked", "false");
+					}
+				});
+			}
+
 
 		});
+
 	</script>
 </head>
 
@@ -430,8 +457,47 @@
 			<a href="dictionarySearch.html">Dictionary</a>
 			<a href="dialectmap.html">Dialect Map</a>
 		</nav>
-		
+
 		<main>
+
+			<?xml version="1.0" encoding="utf-8"?>
+			<!-- Generator: Adobe Illustrator 24.1.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+			<svg id = "dialectMapLogo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 425.48 219.08" style="enable-background:new 0 0 425.48 219.08;" xml:space="preserve">
+				<style type="text/css">
+					.st10 {
+						fill: none;
+					}
+
+					.st11 {
+						fill: #3E6E6D;
+					}
+
+					.st12 {
+						font-family: 'NotoSerifJP-Regular-90ms-RKSJ-H';
+					}
+
+					.st13 {
+						font-size: 72px;
+					}
+
+					.st14 {
+						font-family: 'IM_FELL_DW_Pica_SC';
+					}
+
+				</style>
+				<g id="Layer_1">
+					<rect y="27.26" class="st10" width="425.48" height="213.82" />
+					<text transform="matrix(1 0 0 1 68.7399 85.3603)">
+						<tspan x="0" y="0" class="st11 st12 st13">方言地図</tspan>
+						<tspan x="-48.3" y="86.4" class="st11 st14 st13">Dialect Map</tspan>
+					</text>
+				</g>
+				<g id="Layer_2">
+				</g>
+			</svg>
+
+
+
 			<?xml version="1.0" encoding="utf-8"?>
 			<!-- Generator: Adobe Illustrator 24.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 			<svg version="1.1" id="Japan" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1366 768" style="enable-background:new 0 0 1366 768;" xml:space="preserve">
@@ -460,6 +526,7 @@
 						stroke: #B9D4D4;
 						stroke-miterlimit: 10;
 					}
+
 				</style>
 				<g id="RestOfCountry">
 					<path class="st0" d="M569.5,558.5h4l2,2v4v5l2,3v2c1,2-2,6-2,6l-6,3l-4,3l-2,3l-5,13l-8-9l-10-5l-12,4l-4,2h-2v4v4l-5,3v2l-4,5h-3
@@ -646,4 +713,6 @@
 		</main>
 		<footer></footer>
 	</div>
-</body></html>
+</body>
+
+</html>
