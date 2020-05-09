@@ -10,10 +10,11 @@
 
 	<style>
 		body {
+
 			background-color: #FFFFFF;
 			font-family: 'Yanone Kaffeesatz', sans-serif;
 			margin: 0;
-
+			
 		}
 
 		#dictionaryLogo {
@@ -27,7 +28,7 @@
 		#searchForm {
 			position: relative;
 			z-index: 0;
-
+			margin-top: 100px;
 		}
 
 		#search {
@@ -67,13 +68,19 @@
 			}
 
 			footer {
+				position: relative;
 				grid-column-start: 1;
 				grid-column-end: 4;
 				grid-row-start: 4;
 				grid-row-end: 5;
 				background-color: #E69597;
+				top: 100px;
 			}
-
+			
+			footer p{
+				margin: 2px;
+			}
+			
 			header {
 				grid-column-start: 1;
 				grid-column-end: 4;
@@ -248,11 +255,17 @@
 			}
 
 			footer {
+				position: relative;
 				grid-column-start: 1;
 				grid-column-end: 4;
 				grid-row-start: 4;
 				grid-row-end: 5;
 				background-color: #E69597;
+				top: 100px;
+			}
+			
+			footer p{
+				margin: 2px;
 			}
 
 			header {
@@ -766,7 +779,7 @@
 		<main>
 			<?xml version="1.0" encoding="utf-8"?>
 			<!-- Generator: Adobe Illustrator 24.1.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-			<svg id = "dictionaryLogo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 425.48 219.08" style="enable-background:new 0 0 425.48 219.08;" xml:space="preserve">
+			<svg id="dictionaryLogo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 425.48 219.08" style="enable-background:new 0 0 425.48 219.08;" xml:space="preserve">
 				<style type="text/css">
 					.st0 {
 						fill: none;
@@ -815,8 +828,11 @@
 			<div class="entries">
 			</div>
 		</main>
-		<footer></footer>
+		<footer>
+			<p>Test cases(copy/paste):
+				to run<br>     猫<br>      toshokan
+			</p>
+		</footer>
 	</div>
 </body>
-
 </html>
